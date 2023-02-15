@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <link rel="stylesheet" href="./css/demo.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <title>
+        Viterbi Decoding
+    </title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-one-quarter v-instruction-title">
+                Tasks
+            </div>
+            <div class="column">
+                <div class="v-tabs">
+                    <ul>
+
+                        <li id="Task1" onclick="window.location.href = 'demo.html';">
+                            <a>
+                                Demo-1
+                            </a>
+                        </li>
+
+                        <li class="is-active" id="Task2">
+                            <a>
+                                Demo-2
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="v-collapsible-instruction-container v-instruction-container">
+                    <div class="v-collapsible is-size-5">Instructions </div>
+                    <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+                        <ul style="list-style: disc;">
+
+                            <b>Quick theory overview:</b>
+                            <li>
+                                Encoding for \( (n, n-1) \) SPC code: The codeword corresponding to the message \(
+                                \left[ m_1,
+                                m_2, \dots, m_{n-1} \right ] \in \mathbb{F}_{2}^{n-1}\) will be \( \left[ m_1,
+                                m_2, \dots, m_{n-1}, p \right ] \in \mathbb{F}_{2}^{n} \), where \(p = m_1 + m_2 + \dots
+                                + m_{n-1}\).
+                            </li>
+                        </ul>
+
+                        <br>
+
+                        <ul style="list-style: disc;">
+
+                            <b>Procedure:</b>
+
+                            <li>
+                                First enter a binary message and click on <b>Submit</b>.
+                            </li>
+
+                            <li>
+                                The entered message will be displayed in <b>Observations</b>.
+                            </li>
+
+                            <li>
+                                Encode the message using a \( (3, 2) \) Single Parity Check Code and click on
+                                <b>Submit</b>.
+                            </li>
+
+                            <li>
+                                The correctness of the entered answer is displayed in <b>Observations</b>.
+                            </li>
+
+                            <li>
+                                If the answer is correct, click on <b>Reset</b> to try these steps again with a
+                                different binary message.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+        style="margin-top:-1.5%">
+        <div class="column is-8-desktop is-12-tablet is-12-mobile">
+            <div class="box-question">
+                <div class="algorithm-field">
+                    <svg id="zero-stage-canvas" height="26em" width="55em" viewBox="0 0 820 390" style="display:block">
+
+                        <!-- Received -->
+                        <foreignObject x="135" y="0" width="3em" height="4em">
+                            <div id="rcv-1" class="empty-block" style="display:none">11</div>
+                        </foreignObject>
+
+                        <foreignObject x="275" y="0" width="3em" height="4em">
+                            <div id="rcv-2" class="empty-block" style="display:none">10</div>
+                        </foreignObject>
+
+                        <foreignObject x="415" y="0" width="3em" height="4em">
+                            <div id="rcv-3" class="empty-block" style="display:none">11</div>
+                        </foreignObject>
+
+                        <foreignObject x="555" y="0" width="3em" height="4em">
+                            <div id="rcv-4" class="empty-block" style="display:none">10</div>
+                        </foreignObject>
+
+                        <foreignObject x="695" y="0" width="3em" height="4em">
+                            <div id="rcv-5" class="empty-block" style="display:none">01</div>
+                        </foreignObject>
+
+                        <!-- Message -->
+                        <foreignObject x="0" y="340" width="8em" height="4em">
+                            <div id="msg" style="color:black; font-weight:bold; display:none">Decoded Message</div>
+                        </foreignObject>
+
+                        <foreignObject x="135" y="340" width="3em" height="4em">
+                            <div id="msg-1" class="empty-block" style="display:none">1</div>
+                        </foreignObject>
+
+                        <foreignObject x="275" y="340" width="3em" height="4em">
+                            <div id="msg-2" class="empty-block" style="display:none">1</div>
+                        </foreignObject>
+
+                        <foreignObject x="415" y="340" width="3em" height="4em">
+                            <div id="msg-3" class="empty-block" style="display:none">1</div>
+                        </foreignObject>
+
+                        <foreignObject x="555" y="340" width="3em" height="4em">
+                            <div id="msg-4" class="empty-block" style="display:none">0</div>
+                        </foreignObject>
+
+                        <foreignObject x="695" y="340" width="3em" height="4em">
+                            <div id="msg-5" class="empty-block" style="display:none">0</div>
+                        </foreignObject>
+
+                        <!-- States -->
+                        <foreignObject x="0" y="40" width="3em" height="4em">
+                            <div class="empty-block">00</div>
+                        </foreignObject>
+
+                        <foreignObject x="0" y="120" width="3em" height="4em">
+                            <div class="empty-block">01</div>
+                        </foreignObject>
+
+                        <foreignObject x="0" y="200" width="3em" height="4em">
+                            <div class="empty-block">10</div>
+                        </foreignObject>
+
+                        <foreignObject x="0" y="280" width="3em" height="4em">
+                            <div class="empty-block">11</div>
+                        </foreignObject>
+
+                        <!-- First Stage Blocks -->
+                        <foreignObject x="60" y="40" width="5em" height="5em">
+                            <div id="first-1" class="block">0</div>
+                        </foreignObject>
+
+                        <foreignObject x="60" y="120" width="5em" height="5em">
+                            <div id="first-2" class="block">&infin;</div>
+                        </foreignObject>
+
+                        <foreignObject x="60" y="200" width="5em" height="5em">
+                            <div id="first-3" class="block">&infin;</div>
+                        </foreignObject>
+
+                        <foreignObject x="60" y="280" width="5em" height="5em">
+                            <div id="first-4" class="block">&infin;</div>
+                        </foreignObject>
+
+                        <line class="line" id="l1" x1="120" y1="65" x2="200" y2="65" stroke="red" stroke-width="2"></line>
+                        <line class="line" id="l2" x1="120" y1="70" x2="200" y2="225" stroke="blue" stroke-width="2"></line>
+                        <line class="line" id="l3" x1="120" y1="145" x2="200" y2="65" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l4" x1="120" y1="150" x2="200" y2="225" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l5" x1="120" y1="225" x2="200" y2="145" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l6" x1="120" y1="230" x2="200" y2="310" stroke="blue" stroke-width="2"></line>
+                        <line class="line" id="l7" x1="120" y1="305" x2="200" y2="145" stroke="red" stroke-width="2"></line>
+                        <line class="line" id="l8" x1="120" y1="310" x2="200" y2="310" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
+
+                        <!-- Second Stage Blocks -->
+                        <foreignObject x="200" y="40" width="5em" height="5em">
+                            <div id="second-1" class="block"  style="display:none">2</div>
+                        </foreignObject>
+
+                        <foreignObject x="200" y="120" width="5em" height="5em">
+                            <div id="second-2" class="block"  style="display:none">&infin;</div>
+                        </foreignObject>
+
+                        <foreignObject x="200" y="200" width="5em" height="5em">
+                            <div id="second-3" class="block"  style="display:none">0</div>
+                        </foreignObject>
+
+                        <foreignObject x="200" y="280" width="5em" height="5em">
+                            <div id="second-4" class="block"  style="display:none">&infin;</div>
+                        </foreignObject>
+
+                        <line class="line" id="l9" x1="260" y1="65" x2="340" y2="65" stroke="red" stroke-width="2"></line>
+                        <line class="line" id="l10" x1="260" y1="70" x2="340" y2="225" stroke="blue" stroke-width="2"></line>
+                        <line class="line" id="l11" x1="260" y1="145" x2="340" y2="65" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l12" x1="260" y1="150" x2="340" y2="225" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l13" x1="260" y1="225" x2="340" y2="145" stroke="red" stroke-width="2"></line>
+                        <line class="line" id="l14" x1="260" y1="230" x2="340" y2="310" stroke="blue" stroke-width="2"></line>
+                        <line class="line" id="l15" x1="260" y1="305" x2="340" y2="145" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l16" x1="260" y1="310" x2="340" y2="310" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
+
+                        <!-- Third Stage Blocks -->
+                        <foreignObject x="340" y="40" width="5em" height="5em">
+                            <div id="third-1" class="block"  style="display:none">3</div>
+                        </foreignObject>
+
+                        <foreignObject x="340" y="120" width="5em" height="5em">
+                            <div id="third-2" class="block"  style="display:none">2</div>
+                        </foreignObject>
+
+                        <foreignObject x="340" y="200" width="5em" height="5em">
+                            <div id="third-3" class="block"  style="display:none">3</div>
+                        </foreignObject>
+
+                        <foreignObject x="340" y="280" width="5em" height="5em">
+                            <div id="third-4" class="block"  style="display:none">0</div>
+                        </foreignObject>
+
+                        <line class="line" id="l17" x1="400" y1="65" x2="480" y2="65" stroke="red" stroke-width="2"  style="opacity:0.1;"></line>
+                        <line class="line" id="l18" x1="400" y1="70" x2="480" y2="225" stroke="blue" stroke-width="2"></line>
+                        <line class="line" id="l19" x1="400" y1="145" x2="480" y2="65" stroke="red" stroke-width="2"></line>
+                        <line class="line" id="l20" x1="400" y1="150" x2="480" y2="225" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l21" x1="400" y1="225" x2="480" y2="145" stroke="red" stroke-width="2"  style="opacity:0.1;"></line>
+                        <line class="line" id="l22" x1="400" y1="230" x2="480" y2="310" stroke="blue" stroke-width="2"  style="opacity:0.1;"></line>
+                        <line class="line" id="l23" x1="400" y1="305" x2="480" y2="145" stroke="red" stroke-width="2"></line>
+                        <line class="line" id="l24" x1="400" y1="310" x2="480" y2="310" stroke="blue" stroke-width="2"></line>
+
+                        <!-- Fourth Stage Blocks -->
+                        <foreignObject x="480" y="40" width="5em" height="5em">
+                            <div id="fourth-1" class="block" style="display:none">2</div>
+                        </foreignObject>
+
+                        <foreignObject x="480" y="120" width="5em" height="5em">
+                            <div id="fourth-2" class="block" style="display:none">1</div>
+                        </foreignObject>
+
+                        <foreignObject x="480" y="200" width="5em" height="5em">
+                            <div id="fourth-3" class="block" style="display:none">3</div>
+                        </foreignObject>
+
+                        <foreignObject x="480" y="280" width="5em" height="5em">
+                            <div id="fourth-4" class="block" style="display:none">1</div>
+                        </foreignObject>
+
+                        <line class="line" id="l25" x1="540" y1="65" x2="620" y2="65" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l26" x1="540" y1="70" x2="620" y2="225" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l27" x1="540" y1="145" x2="620" y2="65" stroke="red" stroke-width="2"></line>
+                        <line class="line" id="l28" x1="540" y1="150" x2="620" y2="225" stroke="blue" stroke-width="2"></line>
+                        <line class="line" id="l29" x1="540" y1="225" x2="620" y2="145" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l30" x1="540" y1="230" x2="620" y2="310" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l31" x1="540" y1="305" x2="620" y2="145" stroke="red" stroke-width="2"></line>
+                        <line class="line" id="l32" x1="540" y1="310" x2="620" y2="310" stroke="blue" stroke-width="2"></line>
+
+                        <!-- Fifth Stage Blocks -->
+                        <foreignObject x="620" y="40" width="5em" height="5em">
+                            <div id="fifth-1" class="block" style="display:none">2</div>
+                        </foreignObject>
+
+                        <foreignObject x="620" y="120" width="5em" height="5em">
+                            <div id="fifth-2" class="block" style="display:none">1</div>
+                        </foreignObject>
+
+                        <foreignObject x="620" y="200" width="5em" height="5em">
+                            <div id="fifth-3" class="block" style="display:none">2</div>
+                        </foreignObject>
+
+                        <foreignObject x="620" y="280" width="5em" height="5em">
+                            <div id="fifth-4" class="block" style="display:none">3</div>
+                        </foreignObject>
+
+                        <line class="line" id="l33" x1="680" y1="65" x2="760" y2="65" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l34" x1="680" y1="70" x2="760" y2="225" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l35" x1="680" y1="135" x2="760" y2="65" stroke="red" stroke-width="2"></line>
+                        <line class="line" id="l36" x1="680" y1="140" x2="760" y2="225" stroke="blue" stroke-width="2"></line>
+                        <line class="line" id="l37" x1="680" y1="225" x2="760" y2="145" stroke="red" stroke-width="2"></line>
+                        <line class="line" id="l38" x1="680" y1="230" x2="760" y2="310" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l39" x1="680" y1="305" x2="760" y2="145" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l40" x1="680" y1="310" x2="760" y2="310" stroke="blue" stroke-width="2"></line>
+
+                        <!-- Sixth Stage Blocks -->
+                        <foreignObject x="760" y="40" width="5em" height="5em">
+                            <div id="sixth-1" class="block" style="display:none">2</div>
+                        </foreignObject>
+
+                        <foreignObject x="760" y="120" width="5em" height="5em">
+                            <div id="sixth-2" class="block" style="display:none">2</div>
+                        </foreignObject>
+
+                        <foreignObject x="760" y="200" width="5em" height="5em">
+                            <div id="sixth-3" class="block" style="display:none">2</div>
+                        </foreignObject>
+
+                        <foreignObject x="760" y="280" width="5em" height="5em">
+                            <div id="sixth-4" class="block" style="display:none">3</div>
+                        </foreignObject>
+
+                    </svg>
+                </div>
+                <button id="next" class="v-button" onclick="display()">Next</button>
+                <button id="reset" class="v-button" onclick="reset()">Reset</button>
+
+            </div>
+
+        </div>
+
+        <div class="column is-3-desktop is-4-tablet is-12-mobile">
+            <div class="v-datalist-container components-list">
+                <div class="v-datalist-title">Observations</div>
+                <div id="observations">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+    <script src="./js/main-demo.js"></script>
+</body>
+
+</html>
