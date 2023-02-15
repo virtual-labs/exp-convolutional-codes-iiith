@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <title>
+        State Diagram
+    </title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-one-quarter v-instruction-title">
+                Tasks
+            </div>
+            <div class="column">
+                <div class="v-tabs">
+                    <ul>
+
+                        <li id="Task1" onclick="window.location.href = 'index.html';">
+                            <a>
+                                Encoding
+                            </a>
+                        </li>
+
+                        <li class="is-active" id="Task2">
+                            <a>
+                                State Diagram
+                            </a>
+                        </li>
+
+                        <li id="Task3" onclick="window.location.href = 'viterbi-decoding.html';">
+                            <a>
+                                Viterbi Decoding
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- <h1 style="text-align: center;">Encoding</h1> -->
+
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="v-collapsible-instruction-container v-instruction-container">
+                    <div class="v-collapsible is-size-5">Instructions </div>
+                    <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+                        <ul style="list-style: disc;">
+
+                            <b>Quick theory overview:</b>
+                            <li>
+                                Encoding for \( (n, n-1) \) SPC code: The codeword corresponding to the message \(
+                                \left[ m_1,
+                                m_2, \dots, m_{n-1} \right ] \in \mathbb{F}_{2}^{n-1}\) will be \( \left[ m_1,
+                                m_2, \dots, m_{n-1}, p \right ] \in \mathbb{F}_{2}^{n} \), where \(p = m_1 + m_2 + \dots
+                                + m_{n-1}\).
+                            </li>
+                        </ul>
+
+                        <br>
+
+                        <ul style="list-style: disc;">
+
+                            <b>Procedure:</b>
+
+                            <li>
+                                First enter a binary message and click on <b>Submit</b>.
+                            </li>
+
+                            <li>
+                                The entered message will be displayed in <b>Observations</b>.
+                            </li>
+
+                            <li>
+                                Encode the message using a \( (3, 2) \) Single Parity Check Code and click on
+                                <b>Submit</b>.
+                            </li>
+
+                            <li>
+                                The correctness of the entered answer is displayed in <b>Observations</b>.
+                            </li>
+
+                            <li>
+                                If the answer is correct, click on <b>Reset</b> to try these steps again with a
+                                different binary message.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="columns is-centered">
+        <div class="column is-11-desktop is-12-tablet is-12-mobile">
+            <div class="v-datalist-container components-list">
+                <p>
+                    Consider the following convolutional code.
+                    <br>
+                    <img src="./images/convolutional_code.png" width="250">
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section id="question1">
+        <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+            style="margin-top:-1.5%">
+
+            <div class="column is-3-desktop is-12-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">State Diagram</div>
+                    <div id="state-diagram">
+                        <img id="page-1" src="./images/image-1.png" width="250">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-5-desktop is-12-tablet is-12-mobile">
+                <div class="box-question" style="min-height: 300px;">
+                    <br>
+                    <br>
+                    <form action="" method="get" id="form1" onsubmit="return false">
+                        If the current state is <b style="color: blue;">00</b> and the input is <b style="color: blue;">0</b>, the next state is
+                        <label for="m1"> </label>
+                        <input type="number" class="bit" id="m1" min="0" max="1">
+
+                        <label for="m2"> </label>
+                        <input type="number" class="bit" id="m2" min="0" max="1">
+
+                        <br>
+                        <br>
+
+                        If the current state is <b style="color: blue;">00</b> and the input is <b style="color: blue;">0</b>, the output is
+
+                        <label for="m3"> </label>
+                        <input type="number" class="bit" id="m3" min="0" max="1">
+
+                        <label for="m4"> </label>
+                        <input type="number" class="bit" id="m4" min="0" max="1">
+
+                    </form>
+                    <br>
+                    <button class="v-button" onclick="answer1()" form="form1">Submit</button>
+                    <button class="v-button" id="next-1" onclick="page2()" disabled>Next</button>
+
+                </div>
+            </div>
+
+            <div class="column is-3-desktop is-4-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">Observations</div>
+                    <div id="observations1">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="question2" style="display: none;">
+        <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+            style="margin-top:-1.5%">
+
+            <div class="column is-3-desktop is-12-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">State Diagram</div>
+                    <div id="state-diagram">
+                        <img id="page-2" src="./images/image-2.png" width="250">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-5-desktop is-12-tablet is-12-mobile">
+                <div class="box-question" style="min-height: 300px;">
+                    <br>
+                    <br>
+                    <form action="" method="get" id="form2" onsubmit="return false">
+                        If the current state is <b style="color: blue;">00</b> and the input is <b style="color: blue;">1</b>, the next state is
+                        <label for="m5"> </label>
+                        <input type="number" class="bit" id="m5" min="0" max="1">
+
+                        <label for="m6"> </label>
+                        <input type="number" class="bit" id="m6" min="0" max="1">
+
+                        <br>
+                        <br>
+
+                        If the current state is <b style="color: blue;">00</b> and the input is <b style="color: blue;">1</b>, the output is
+
+                        <label for="m7"> </label>
+                        <input type="number" class="bit" id="m7" min="0" max="1">
+
+                        <label for="m8"> </label>
+                        <input type="number" class="bit" id="m8" min="0" max="1">
+
+                    </form>
+                    <br>
+                    <button class="v-button" onclick="answer2()" form="form2">Submit</button>
+                    <button class="v-button" id="next-2" onclick="page3()" disabled>Next</button>
+
+                </div>
+            </div>
+
+            <div class="column is-3-desktop is-4-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">Observations</div>
+                    <div id="observations2">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="question3" style="display: none;">
+        <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+            style="margin-top:-1.5%">
+
+            <div class="column is-3-desktop is-12-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">State Diagram</div>
+                    <div id="state-diagram">
+                        <img id="page-3" src="./images/image-3.png" width="250">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-5-desktop is-12-tablet is-12-mobile">
+                <div class="box-question" style="min-height: 300px;">
+                    <br>
+                    <br>
+                    <form action="" method="get" id="form3" onsubmit="return false">
+                        If the current state is <b style="color: blue;">01</b> and the input is <b style="color: blue;">0</b>, the next state is
+                        <label for="m9"> </label>
+                        <input type="number" class="bit" id="m9" min="0" max="1">
+
+                        <label for="m10"> </label>
+                        <input type="number" class="bit" id="m10" min="0" max="1">
+
+                        <br>
+                        <br>
+
+                        If the current state is <b style="color: blue;">01</b> and the input is <b style="color: blue;">0</b>, the output is
+
+                        <label for="m11"> </label>
+                        <input type="number" class="bit" id="m11" min="0" max="1">
+
+                        <label for="m12"> </label>
+                        <input type="number" class="bit" id="m12" min="0" max="1">
+
+                    </form>
+                    <br>
+                    <button class="v-button" onclick="answer3()" form="form3">Submit</button>
+                    <button class="v-button" id="next-3" onclick="page4()" disabled>Next</button>
+
+                </div>
+            </div>
+
+            <div class="column is-3-desktop is-4-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">Observations</div>
+                    <div id="observations3">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="question4" style="display: none;">
+        <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+            style="margin-top:-1.5%">
+
+            <div class="column is-3-desktop is-12-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">State Diagram</div>
+                    <div id="state-diagram">
+                        <img id="page-4" src="./images/image-4.png" width="250">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-5-desktop is-12-tablet is-12-mobile">
+                <div class="box-question" style="min-height: 300px;">
+                    <br>
+                    <br>
+                    <form action="" method="get" id="form4" onsubmit="return false">
+                        If the current state is <b style="color: blue;">01</b> and the input is <b style="color: blue;">1</b>, the next state is
+                        <label for="m13"> </label>
+                        <input type="number" class="bit" id="m13" min="0" max="1">
+
+                        <label for="m14"> </label>
+                        <input type="number" class="bit" id="m14" min="0" max="1">
+
+                        <br>
+                        <br>
+
+                        If the current state is <b style="color: blue;">01</b> and the input is <b style="color: blue;">1</b>, the output is
+
+                        <label for="m15"> </label>
+                        <input type="number" class="bit" id="m15" min="0" max="1">
+
+                        <label for="m16"> </label>
+                        <input type="number" class="bit" id="m16" min="0" max="1">
+
+                    </form>
+                    <br>
+                    <button class="v-button" onclick="answer4()" form="form4">Submit</button>
+                    <button class="v-button" id="next-4" onclick="page5()" disabled>Next</button>
+
+                </div>
+            </div>
+
+            <div class="column is-3-desktop is-4-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">Observations</div>
+                    <div id="observations4">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="question5" style="display: none;">
+        <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+            style="margin-top:-1.5%">
+
+            <div class="column is-3-desktop is-12-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">State Diagram</div>
+                    <div id="state-diagram">
+                        <img id="page-5" src="./images/image-5.png" width="250">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-5-desktop is-12-tablet is-12-mobile">
+                <div class="box-question" style="min-height: 300px;">
+                    <br>
+                    <br>
+                    <form action="" method="get" id="form5" onsubmit="return false">
+                        If the current state is <b style="color: blue;">10</b> and the input is <b style="color: blue;">0</b>, the next state is
+                        <label for="m17"> </label>
+                        <input type="number" class="bit" id="m17" min="0" max="1">
+
+                        <label for="m18"> </label>
+                        <input type="number" class="bit" id="m18" min="0" max="1">
+
+                        <br>
+                        <br>
+
+                        If the current state is <b style="color: blue;">10</b> and the input is <b style="color: blue;">0</b>, the output is
+
+                        <label for="m19"> </label>
+                        <input type="number" class="bit" id="m19" min="0" max="1">
+
+                        <label for="m20"> </label>
+                        <input type="number" class="bit" id="m20" min="0" max="1">
+
+                    </form>
+                    <br>
+                    <button class="v-button" onclick="answer5()" form="form5">Submit</button>
+                    <button class="v-button" id="next-5" onclick="page6()" disabled>Next</button>
+
+                </div>
+            </div>
+
+            <div class="column is-3-desktop is-4-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">Observations</div>
+                    <div id="observations5">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="question6" style="display: none;">
+        <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+            style="margin-top:-1.5%">
+
+            <div class="column is-3-desktop is-12-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">State Diagram</div>
+                    <div id="state-diagram">
+                        <img id="page-6" src="./images/image-6.png" width="250">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-5-desktop is-12-tablet is-12-mobile">
+                <div class="box-question" style="min-height: 300px;">
+                    <br>
+                    <br>
+                    <form action="" method="get" id="form6" onsubmit="return false">
+                        If the current state is <b style="color: blue;">10</b> and the input is <b style="color: blue;">1</b>, the next state is
+                        <label for="m21"> </label>
+                        <input type="number" class="bit" id="m21" min="0" max="1">
+
+                        <label for="m22"> </label>
+                        <input type="number" class="bit" id="m22" min="0" max="1">
+
+                        <br>
+                        <br>
+
+                        If the current state is <b style="color: blue;">10</b> and the input is <b style="color: blue;">1</b>, the output is
+
+                        <label for="m23"> </label>
+                        <input type="number" class="bit" id="m23" min="0" max="1">
+
+                        <label for="m24"> </label>
+                        <input type="number" class="bit" id="m24" min="0" max="1">
+
+                    </form>
+                    <br>
+                    <button class="v-button" onclick="answer6()" form="form6">Submit</button>
+                    <button class="v-button" id="next-6" onclick="page7()" disabled>Next</button>
+
+                </div>
+            </div>
+
+            <div class="column is-3-desktop is-4-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">Observations</div>
+                    <div id="observations6">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="question7" style="display: none;">
+        <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+            style="margin-top:-1.5%">
+
+            <div class="column is-3-desktop is-12-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">State Diagram</div>
+                    <div id="state-diagram">
+                        <img id="page-7" src="./images/image-7.png" width="250">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-5-desktop is-12-tablet is-12-mobile">
+                <div class="box-question" style="min-height: 300px;">
+                    <br>
+                    <br>
+                    <form action="" method="get" id="form7" onsubmit="return false">
+                        If the current state is <b style="color: blue;">11</b> and the input is <b style="color: blue;">0</b>, the next state is
+                        <label for="m25"> </label>
+                        <input type="number" class="bit" id="m25" min="0" max="1">
+
+                        <label for="m26"> </label>
+                        <input type="number" class="bit" id="m26" min="0" max="1">
+
+                        <br>
+                        <br>
+
+                        If the current state is <b style="color: blue;">11</b> and the input is <b style="color: blue;">0</b>, the output is
+
+                        <label for="m27"> </label>
+                        <input type="number" class="bit" id="m27" min="0" max="1">
+
+                        <label for="m28"> </label>
+                        <input type="number" class="bit" id="m28" min="0" max="1">
+
+                    </form>
+                    <br>
+                    <button class="v-button" onclick="answer7()" form="form7">Submit</button>
+                    <button class="v-button" id="next-7" onclick="page8()" disabled>Next</button>
+
+                </div>
+            </div>
+
+            <div class="column is-3-desktop is-4-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">Observations</div>
+                    <div id="observations7">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="question8" style="display: none;">
+        <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+            style="margin-top:-1.5%">
+
+            <div class="column is-3-desktop is-12-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">State Diagram</div>
+                    <div id="state-diagram">
+                        <img id="page-8" src="./images/image-8.png" width="250">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-5-desktop is-12-tablet is-12-mobile">
+                <div class="box-question" style="min-height: 300px;">
+                    <br>
+                    <br>
+                    <form action="" method="get" id="form8" onsubmit="return false">
+                        If the current state is <b style="color: blue;">11</b> and the input is <b style="color: blue;">1</b>, the next state is
+                        <label for="m29"> </label>
+                        <input type="number" class="bit" id="m29" min="0" max="1">
+
+                        <label for="m30"> </label>
+                        <input type="number" class="bit" id="m30" min="0" max="1">
+
+                        <br>
+                        <br>
+
+                        If the current state is <b style="color: blue;">11</b> and the input is <b style="color: blue;">1</b>, the output is
+
+                        <label for="m31"> </label>
+                        <input type="number" class="bit" id="m31" min="0" max="1">
+
+                        <label for="m32"> </label>
+                        <input type="number" class="bit" id="m32" min="0" max="1">
+
+                    </form>
+                    <br>
+                    <button class="v-button" onclick="answer8()" form="form8">Submit</button>
+                </div>
+            </div>
+
+            <div class="column is-3-desktop is-4-tablet is-12-mobile">
+                <div class="v-datalist-container components-list">
+                    <div class="v-datalist-title">Observations</div>
+                    <div id="observations8">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+    <script src="./js/state-diagram.js"></script>
+</body>
+
+</html>
