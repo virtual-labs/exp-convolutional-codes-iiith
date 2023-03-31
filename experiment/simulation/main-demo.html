@@ -28,13 +28,13 @@
 
                         <li id="Task1" onclick="window.location.href = 'demo.html';">
                             <a>
-                                Demo-1
+                                One Step Time Evolution
                             </a>
                         </li>
 
                         <li class="is-active" id="Task2">
                             <a>
-                                Demo-2
+                                Viterbi Decoding
                             </a>
                         </li>
 
@@ -48,43 +48,15 @@
                     <div class="v-collapsible is-size-5">Instructions </div>
                     <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
                         <ul style="list-style: disc;">
-
-                            <b>Quick theory overview:</b>
-                            <li>
-                                Encoding for \( (n, n-1) \) SPC code: The codeword corresponding to the message \(
-                                \left[ m_1,
-                                m_2, \dots, m_{n-1} \right ] \in \mathbb{F}_{2}^{n-1}\) will be \( \left[ m_1,
-                                m_2, \dots, m_{n-1}, p \right ] \in \mathbb{F}_{2}^{n} \), where \(p = m_1 + m_2 + \dots
-                                + m_{n-1}\).
-                            </li>
-                        </ul>
-
-                        <br>
-
-                        <ul style="list-style: disc;">
-
                             <b>Procedure:</b>
 
                             <li>
-                                First enter a binary message and click on <b>Submit</b>.
+                                Observe the decoding of the received vector using the Viterbi decoding algorithm by
+                                clicking on <b>Next</b> until the vector is decoded.
                             </li>
 
                             <li>
-                                The entered message will be displayed in <b>Observations</b>.
-                            </li>
-
-                            <li>
-                                Encode the message using a \( (3, 2) \) Single Parity Check Code and click on
-                                <b>Submit</b>.
-                            </li>
-
-                            <li>
-                                The correctness of the entered answer is displayed in <b>Observations</b>.
-                            </li>
-
-                            <li>
-                                If the answer is correct, click on <b>Reset</b> to try these steps again with a
-                                different binary message.
+                                <b>Reset</b>- Resets the simulation.
                             </li>
                         </ul>
                     </div>
@@ -181,66 +153,90 @@
                             <div id="first-4" class="block">&infin;</div>
                         </foreignObject>
 
-                        <line class="line" id="l1" x1="120" y1="65" x2="200" y2="65" stroke="red" stroke-width="2"></line>
-                        <line class="line" id="l2" x1="120" y1="70" x2="200" y2="225" stroke="blue" stroke-width="2"></line>
-                        <line class="line" id="l3" x1="120" y1="145" x2="200" y2="65" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l4" x1="120" y1="150" x2="200" y2="225" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l5" x1="120" y1="225" x2="200" y2="145" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l6" x1="120" y1="230" x2="200" y2="310" stroke="blue" stroke-width="2"></line>
-                        <line class="line" id="l7" x1="120" y1="305" x2="200" y2="145" stroke="red" stroke-width="2"></line>
-                        <line class="line" id="l8" x1="120" y1="310" x2="200" y2="310" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l1" x1="120" y1="65" x2="200" y2="65" stroke="red" stroke-width="2">
+                        </line>
+                        <line class="line" id="l2" x1="120" y1="70" x2="200" y2="225" stroke="blue" stroke-width="2">
+                        </line>
+                        <line class="line" id="l3" x1="120" y1="145" x2="200" y2="65" stroke="red" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l4" x1="120" y1="150" x2="200" y2="225" stroke="blue" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l5" x1="120" y1="225" x2="200" y2="145" stroke="red" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l6" x1="120" y1="230" x2="200" y2="310" stroke="blue" stroke-width="2">
+                        </line>
+                        <line class="line" id="l7" x1="120" y1="305" x2="200" y2="145" stroke="red" stroke-width="2">
+                        </line>
+                        <line class="line" id="l8" x1="120" y1="310" x2="200" y2="310" stroke="blue" stroke-width="2"
+                            style="opacity:0.1;"></line>
 
                         <!-- Second Stage Blocks -->
                         <foreignObject x="200" y="40" width="5em" height="5em">
-                            <div id="second-1" class="block"  style="display:none">2</div>
+                            <div id="second-1" class="block" style="display:none">2</div>
                         </foreignObject>
 
                         <foreignObject x="200" y="120" width="5em" height="5em">
-                            <div id="second-2" class="block"  style="display:none">&infin;</div>
+                            <div id="second-2" class="block" style="display:none">&infin;</div>
                         </foreignObject>
 
                         <foreignObject x="200" y="200" width="5em" height="5em">
-                            <div id="second-3" class="block"  style="display:none">0</div>
+                            <div id="second-3" class="block" style="display:none">0</div>
                         </foreignObject>
 
                         <foreignObject x="200" y="280" width="5em" height="5em">
-                            <div id="second-4" class="block"  style="display:none">&infin;</div>
+                            <div id="second-4" class="block" style="display:none">&infin;</div>
                         </foreignObject>
 
-                        <line class="line" id="l9" x1="260" y1="65" x2="340" y2="65" stroke="red" stroke-width="2"></line>
-                        <line class="line" id="l10" x1="260" y1="70" x2="340" y2="225" stroke="blue" stroke-width="2"></line>
-                        <line class="line" id="l11" x1="260" y1="145" x2="340" y2="65" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l12" x1="260" y1="150" x2="340" y2="225" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l13" x1="260" y1="225" x2="340" y2="145" stroke="red" stroke-width="2"></line>
-                        <line class="line" id="l14" x1="260" y1="230" x2="340" y2="310" stroke="blue" stroke-width="2"></line>
-                        <line class="line" id="l15" x1="260" y1="305" x2="340" y2="145" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l16" x1="260" y1="310" x2="340" y2="310" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
+                        <line class="line" id="l9" x1="260" y1="65" x2="340" y2="65" stroke="red" stroke-width="2">
+                        </line>
+                        <line class="line" id="l10" x1="260" y1="70" x2="340" y2="225" stroke="blue" stroke-width="2">
+                        </line>
+                        <line class="line" id="l11" x1="260" y1="145" x2="340" y2="65" stroke="red" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l12" x1="260" y1="150" x2="340" y2="225" stroke="blue" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l13" x1="260" y1="225" x2="340" y2="145" stroke="red" stroke-width="2">
+                        </line>
+                        <line class="line" id="l14" x1="260" y1="230" x2="340" y2="310" stroke="blue" stroke-width="2">
+                        </line>
+                        <line class="line" id="l15" x1="260" y1="305" x2="340" y2="145" stroke="red" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l16" x1="260" y1="310" x2="340" y2="310" stroke="blue" stroke-width="2"
+                            style="opacity:0.1;"></line>
 
                         <!-- Third Stage Blocks -->
                         <foreignObject x="340" y="40" width="5em" height="5em">
-                            <div id="third-1" class="block"  style="display:none">3</div>
+                            <div id="third-1" class="block" style="display:none">3</div>
                         </foreignObject>
 
                         <foreignObject x="340" y="120" width="5em" height="5em">
-                            <div id="third-2" class="block"  style="display:none">2</div>
+                            <div id="third-2" class="block" style="display:none">2</div>
                         </foreignObject>
 
                         <foreignObject x="340" y="200" width="5em" height="5em">
-                            <div id="third-3" class="block"  style="display:none">3</div>
+                            <div id="third-3" class="block" style="display:none">3</div>
                         </foreignObject>
 
                         <foreignObject x="340" y="280" width="5em" height="5em">
-                            <div id="third-4" class="block"  style="display:none">0</div>
+                            <div id="third-4" class="block" style="display:none">0</div>
                         </foreignObject>
 
-                        <line class="line" id="l17" x1="400" y1="65" x2="480" y2="65" stroke="red" stroke-width="2"  style="opacity:0.1;"></line>
-                        <line class="line" id="l18" x1="400" y1="70" x2="480" y2="225" stroke="blue" stroke-width="2"></line>
-                        <line class="line" id="l19" x1="400" y1="145" x2="480" y2="65" stroke="red" stroke-width="2"></line>
-                        <line class="line" id="l20" x1="400" y1="150" x2="480" y2="225" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l21" x1="400" y1="225" x2="480" y2="145" stroke="red" stroke-width="2"  style="opacity:0.1;"></line>
-                        <line class="line" id="l22" x1="400" y1="230" x2="480" y2="310" stroke="blue" stroke-width="2"  style="opacity:0.1;"></line>
-                        <line class="line" id="l23" x1="400" y1="305" x2="480" y2="145" stroke="red" stroke-width="2"></line>
-                        <line class="line" id="l24" x1="400" y1="310" x2="480" y2="310" stroke="blue" stroke-width="2"></line>
+                        <line class="line" id="l17" x1="400" y1="65" x2="480" y2="65" stroke="red" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l18" x1="400" y1="70" x2="480" y2="225" stroke="blue" stroke-width="2">
+                        </line>
+                        <line class="line" id="l19" x1="400" y1="145" x2="480" y2="65" stroke="red" stroke-width="2">
+                        </line>
+                        <line class="line" id="l20" x1="400" y1="150" x2="480" y2="225" stroke="blue" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l21" x1="400" y1="225" x2="480" y2="145" stroke="red" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l22" x1="400" y1="230" x2="480" y2="310" stroke="blue" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l23" x1="400" y1="305" x2="480" y2="145" stroke="red" stroke-width="2">
+                        </line>
+                        <line class="line" id="l24" x1="400" y1="310" x2="480" y2="310" stroke="blue" stroke-width="2">
+                        </line>
 
                         <!-- Fourth Stage Blocks -->
                         <foreignObject x="480" y="40" width="5em" height="5em">
@@ -259,14 +255,22 @@
                             <div id="fourth-4" class="block" style="display:none">1</div>
                         </foreignObject>
 
-                        <line class="line" id="l25" x1="540" y1="65" x2="620" y2="65" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l26" x1="540" y1="70" x2="620" y2="225" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l27" x1="540" y1="145" x2="620" y2="65" stroke="red" stroke-width="2"></line>
-                        <line class="line" id="l28" x1="540" y1="150" x2="620" y2="225" stroke="blue" stroke-width="2"></line>
-                        <line class="line" id="l29" x1="540" y1="225" x2="620" y2="145" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l30" x1="540" y1="230" x2="620" y2="310" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l31" x1="540" y1="305" x2="620" y2="145" stroke="red" stroke-width="2"></line>
-                        <line class="line" id="l32" x1="540" y1="310" x2="620" y2="310" stroke="blue" stroke-width="2"></line>
+                        <line class="line" id="l25" x1="540" y1="65" x2="620" y2="65" stroke="red" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l26" x1="540" y1="70" x2="620" y2="225" stroke="blue" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l27" x1="540" y1="145" x2="620" y2="65" stroke="red" stroke-width="2">
+                        </line>
+                        <line class="line" id="l28" x1="540" y1="150" x2="620" y2="225" stroke="blue" stroke-width="2">
+                        </line>
+                        <line class="line" id="l29" x1="540" y1="225" x2="620" y2="145" stroke="red" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l30" x1="540" y1="230" x2="620" y2="310" stroke="blue" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l31" x1="540" y1="305" x2="620" y2="145" stroke="red" stroke-width="2">
+                        </line>
+                        <line class="line" id="l32" x1="540" y1="310" x2="620" y2="310" stroke="blue" stroke-width="2">
+                        </line>
 
                         <!-- Fifth Stage Blocks -->
                         <foreignObject x="620" y="40" width="5em" height="5em">
@@ -285,14 +289,22 @@
                             <div id="fifth-4" class="block" style="display:none">3</div>
                         </foreignObject>
 
-                        <line class="line" id="l33" x1="680" y1="65" x2="760" y2="65" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l34" x1="680" y1="70" x2="760" y2="225" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l35" x1="680" y1="135" x2="760" y2="65" stroke="red" stroke-width="2"></line>
-                        <line class="line" id="l36" x1="680" y1="140" x2="760" y2="225" stroke="blue" stroke-width="2"></line>
-                        <line class="line" id="l37" x1="680" y1="225" x2="760" y2="145" stroke="red" stroke-width="2"></line>
-                        <line class="line" id="l38" x1="680" y1="230" x2="760" y2="310" stroke="blue" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l39" x1="680" y1="305" x2="760" y2="145" stroke="red" stroke-width="2" style="opacity:0.1;"></line>
-                        <line class="line" id="l40" x1="680" y1="310" x2="760" y2="310" stroke="blue" stroke-width="2"></line>
+                        <line class="line" id="l33" x1="680" y1="65" x2="760" y2="65" stroke="red" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l34" x1="680" y1="70" x2="760" y2="225" stroke="blue" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l35" x1="680" y1="135" x2="760" y2="65" stroke="red" stroke-width="2">
+                        </line>
+                        <line class="line" id="l36" x1="680" y1="140" x2="760" y2="225" stroke="blue" stroke-width="2">
+                        </line>
+                        <line class="line" id="l37" x1="680" y1="225" x2="760" y2="145" stroke="red" stroke-width="2">
+                        </line>
+                        <line class="line" id="l38" x1="680" y1="230" x2="760" y2="310" stroke="blue" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l39" x1="680" y1="305" x2="760" y2="145" stroke="red" stroke-width="2"
+                            style="opacity:0.1;"></line>
+                        <line class="line" id="l40" x1="680" y1="310" x2="760" y2="310" stroke="blue" stroke-width="2">
+                        </line>
 
                         <!-- Sixth Stage Blocks -->
                         <foreignObject x="760" y="40" width="5em" height="5em">
@@ -324,7 +336,6 @@
             <div class="v-datalist-container components-list">
                 <div class="v-datalist-title">Observations</div>
                 <div id="observations">
-
                 </div>
             </div>
         </div>

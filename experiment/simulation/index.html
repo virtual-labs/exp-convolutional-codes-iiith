@@ -31,7 +31,7 @@
                             </a>
                         </li>
 
-						<li id="Task2" onclick="window.location.href = 'state-diagram.html';">
+                        <li id="Task2" onclick="window.location.href = 'state-diagram.html';">
                             <a>
                                 State Diagram
                             </a>
@@ -57,9 +57,12 @@
 
                             <b>Quick theory overview:</b>
                             <li>
-                                Encoding for \( (n, n-1) \) SPC code: The codeword corresponding to the message \( \left[ m_1,
-                                m_2, \dots, m_{n-1} \right ] \in \mathbb{F}_{2}^{n-1}\) will be \( \left[ m_1,
-                                m_2, \dots, m_{n-1}, p \right ] \in \mathbb{F}_{2}^{n} \), where \(p = m_1 + m_2 + \dots + m_{n-1}\).
+                                The codeword of a convolutional code can be obtained by directly giving the message
+                                the convolutional encoder, without dividing it into short message blocks.
+                            </li>
+                            <li>
+                                The output of convolutional encoder is the encoded bitstream corresponding to the input
+                                bitstream.
                             </li>
                         </ul>
 
@@ -78,7 +81,8 @@
                             </li>
 
                             <li>
-                                Encode the message using a \( (3, 2) \) Single Parity Check Code and click on <b>Submit</b>.
+                                Encode the message using the given convolutional encoder and click on
+                                <b>Submit</b>.
                             </li>
 
                             <li>
@@ -100,10 +104,10 @@
     <div class="columns is-centered">
         <div class="column is-11-desktop is-12-tablet is-12-mobile">
             <div class="v-datalist-container components-list">
-                <p> 
-					Encode a message of your choice using the following convolutional code. 
-					<br>
-					<img src="./images/convolutional_code.png" width="300">
+                <p>
+                    Encode a message of your choice using the following convolutional code.
+                    <br>
+                    <img src="./images/convolutional_code.png" width="60%">
                 </p>
             </div>
         </div>
@@ -113,30 +117,57 @@
         style="margin-top:-1.5%">
         <div class="column is-8-desktop is-12-tablet is-12-mobile">
             <div class="box-question">
-                
-                
+
+
 
                 <section id="part1">
                     <form action="" method="get" id="form1" onsubmit="return false">
 
-                        Enter a <b>6-bit</b> message
-                        <label for="m1"> </label>
-                        <input type="number" class="bit" id="m1" min="0" max="1">
+                        <br>
+                        <div>
+                            Enter a <b>6-bit</b> message &nbsp;
+                        </div>
+                        <br>
+                        <div style="display: inline-flex; align-items:first baseline;">
 
-                        <label for="m2"> </label>
-                        <input type="number" class="bit" id="m2" min="0" max="1">
 
-                        <label for="m3"> </label>
-                        <input type="number" class="bit" id="m3" min="0" max="1">
+                            <div>
+                                <label for="m1"> </label>
+                                <input type="number" class="bit" id="m1" min="0" max="1">
+                                <div><i>u<sub>5</sub></i></div>
+                            </div>
+                            &nbsp;
+                            <div>
+                                <label for="m2"> </label>
+                                <input type="number" class="bit" id="m2" min="0" max="1">
+                                <div><i>u<sub>4</sub></i></div>
+                            </div>
+                            &nbsp;
+                            <div>
+                                <label for="m3"> </label>
+                                <input type="number" class="bit" id="m3" min="0" max="1">
+                                <div><i>u<sub>3</sub></i></div>
+                            </div>
+                            &nbsp;
+                            <div>
+                                <label for="m4"> </label>
+                                <input type="number" class="bit" id="m4" min="0" max="1">
+                                <div><i>u<sub>2</sub></i></div>
+                            </div>
+                            &nbsp;
+                            <div>
+                                <label for="m5"> </label>
+                                <input type="number" class="bit" id="m5" min="0" max="1">
+                                <div><i>u<sub>1</sub></i></div>
+                            </div>
+                            &nbsp;
+                            <div>
+                                <label for="m6"> </label>
+                                <input type="number" class="bit" id="m6" min="0" max="1">
+                                <div><i>u<sub>0</sub></i></div>
+                            </div>
+                        </div>
 
-                        <label for="m4"> </label>
-                        <input type="number" class="bit" id="m4" min="0" max="1">
-
-                        <label for="m5"> </label>
-                        <input type="number" class="bit" id="m5" min="0" max="1">
-
-                        <label for="m6"> </label>
-                        <input type="number" class="bit" id="m6" min="0" max="1">
 
                     </form>
                     <br>
@@ -144,46 +175,96 @@
 
                 </section>
 
-                <section id="part2" style="display:none ;">
+                <section id="part2" style="display: none;">
                     <form action="" method="get" id="form2" onsubmit="return false">
                         Enter the codeword corresponding to the message.
                         <br>
                         <br>
-                        <label for="b1"> </label>
-                        <input type="number" class="bit" id="b1" min="0" max="1">
+                        <div style="display: inline-flex; align-items:first baseline; flex-wrap: wrap;">
 
-                        <label for="b2"> </label>
-                        <input type="number" class="bit" id="b2" min="0" max="1">
+                            <div>
+                                <label for="b1"> </label>
+                                <input type="number" class="bit" id="b1" min="0" max="1">
+                                <div><i>v<sub>0</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
 
-                        <label for="b3"> </label>
-                        <input type="number" class="bit" id="b3" min="0" max="1">
+                            <div>
+                                <label for="b2"> </label>
+                                <input type="number" class="bit" id="b2" min="0" max="1">
+                                <div><i>v<sub>0</sub><sup>(1)</sup></i></div>
+                            </div>
+                            &nbsp;
 
-                        <label for="b4"> </label>
-                        <input type="number" class="bit" id="b4" min="0" max="1">
+                            <div>
+                                <label for="b3"> </label>
+                                <input type="number" class="bit" id="b3" min="0" max="1">
+                                <div><i>v<sub>1</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
 
-                        <label for="b5"> </label>
-                        <input type="number" class="bit" id="b5" min="0" max="1">
+                            <div>
+                                <label for="b4"> </label>
+                                <input type="number" class="bit" id="b4" min="0" max="1">
+                                <div><i>v<sub>1</sub><sup>(1)</sup></i></div>
+                            </div>
+                            &nbsp;
 
-                        <label for="b6"> </label>
-                        <input type="number" class="bit" id="b6" min="0" max="1">
+                            <div>
+                                <label for="b5"> </label>
+                                <input type="number" class="bit" id="b5" min="0" max="1">
+                                <div><i>v<sub>2</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
 
-                        <label for="b7"> </label>
-                        <input type="number" class="bit" id="b7" min="0" max="1">
+                            <div>
+                                <label for="b6"> </label>
+                                <input type="number" class="bit" id="b6" min="0" max="1">
+                                <div><i>v<sub>2</sub><sup>(1)</sup></i></div>
+                            </div>
+                            &nbsp;
 
-                        <label for="b8"> </label>
-                        <input type="number" class="bit" id="b8" min="0" max="1">
+                            <div>
+                                <label for="b7"> </label>
+                                <input type="number" class="bit" id="b7" min="0" max="1">
+                                <div><i>v<sub>3</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
 
-						<label for="b9"> </label>
-                        <input type="number" class="bit" id="b9" min="0" max="1">
+                            <div>
+                                <label for="b8"> </label>
+                                <input type="number" class="bit" id="b8" min="0" max="1">
+                                <div><i>v<sub>3</sub><sup>(1)</sup></i></div>
+                            </div>
+                            &nbsp;
 
-                        <label for="b10"> </label>
-                        <input type="number" class="bit" id="b10" min="0" max="1">
+                            <div>
+                                <label for="b9"> </label>
+                                <input type="number" class="bit" id="b9" min="0" max="1">
+                                <div><i>v<sub>4</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
 
-                        <label for="b11"> </label>
-                        <input type="number" class="bit" id="b11" min="0" max="1">
+                            <div>
+                                <label for="b10"> </label>
+                                <input type="number" class="bit" id="b10" min="0" max="1">
+                                <div><i>v<sub>4</sub><sup>(1)</sup></i></div>
+                            </div>
+                            &nbsp;
 
-                        <label for="b12"> </label>
-                        <input type="number" class="bit" id="b12" min="0" max="1">
+                            <div>
+                                <label for="b11"> </label>
+                                <input type="number" class="bit" id="b11" min="0" max="1">
+                                <div><i>v<sub>5</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b12"> </label>
+                                <input type="number" class="bit" id="b12" min="0" max="1">
+                                <div><i>v<sub>5</sub><sup>(0)</sup></i></div>
+                            </div>
+                        </div>
 
                     </form>
                     <br>
@@ -207,7 +288,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
     <script src="./js/encoding.js"></script>

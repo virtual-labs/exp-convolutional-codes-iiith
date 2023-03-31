@@ -76,9 +76,9 @@ function check() {
     const expectedOut1 = oneD_conv(inpArray, genSequence1);
     const expectedOut2 = oneD_conv(inpArray, genSequence2);
 
-    console.log(inpArray);
-    console.log(expectedOut1);
-    console.log(expectedOut2);
+    // console.log(inpArray);
+    // console.log(expectedOut1);
+    // console.log(expectedOut2);
 
     if (b1.length == 0 || b2.length == 0 || b3.length == 0 || b4.length == 0
         || b5.length == 0 || b6.length == 0 || b7.length == 0 || b8.length == 0

@@ -200,11 +200,9 @@ function reset() {
     cross3.style.display = "none";
     cross4.style.display = "none";
 
-    next1.style.innerHTML = "";
-    next2.style.innerHTML = "";
-    next3.style.innerHTML = "";
-    next4.style.innerHTML = "";
-
-
+    next1.innerHTML = "";
+    next2.innerHTML = "";
+    next3.innerHTML = "";
+    next4.innerHTML = "";
 
 }
