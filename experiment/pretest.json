@@ -2,35 +2,45 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "<img src='./images/exp5@pre1.png'></img>",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Convolutional codes can be linear or non-linear codes and they have memory.",
+        "b": "Convolutional codes are linear codes and they have memory.",
+        "c": "Convolutional codes are linear codes and they may or may not have memory.",
+        "d": "Both (B) and (C) are correct."
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "<img src='./images/exp5@pre2.png'></img>",
+      "answers": {
+        "a": "<img src='./images/exp5@pre2a.png'></img>",
+        "b": "<img src='./images/exp5@pre2b.png'></img>",
+        "c": "<img src='./images/exp5@pre2c.png'></img>",
+        "d": "<img src='./images/exp5@pre2d.png'></img>"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "<img src='./images/exp5@pre3.png'></img>",
+      "answers": {
+        "a": "<img src='./images/exp5@pre3a.png'></img>",
+        "b": "<img src='./images/exp5@pre3b.png'></img>",
+        "c": "<img src='./images/exp5@pre3c.png'></img>",
+        "d": "<img src='./images/exp5@pre3d.png'></img>"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "<img src='./images/exp5@pre4.png'></img>",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Viterbi algorithm provides maximum likelihood decoding.",
+        "b": "Viterbi algorithm can also be applied when the encoder does not start in all-zero state.",
+        "c": "Viterbi algorithm will fail if there are multiple states with the same state metric.",
+        "d": "Consider the forward pass of Viterbi algorithm. In any intermediate step, the arriving path to any state with a larger weight is discarded."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"

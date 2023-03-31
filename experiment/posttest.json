@@ -2,35 +2,56 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "<img src='./images/exp5@post1.png'></img>",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "0",
+        "b": "3",
+        "c": "4",
+        "d": "5"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "<img src='./images/exp5@post2.png'></img>",
+      "answers": {
+        "a": "<img src='./images/exp5@post2a.png'></img>",
+        "b": "<img src='./images/exp5@post2b.png'></img>",
+        "c": "<img src='./images/exp5@post2c.png'></img>",
+        "d": "<img src='./images/exp5@pre2d.png'></img>"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "<img src='./images/exp5@post3.png'></img>",
+      "answers": {
+        "a": "<img src='./images/exp5@post3a.png'></img>",
+        "b": "<img src='./images/exp5@post3b.png'></img>",
+        "c": "<img src='./images/exp5@post3c.png'></img>",
+        "d": "<img src='./images/exp5@post3d.png'></img>"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "<img src='./images/exp5@post4.png'></img>",
+      "answers": {
+        "a": "<img src='./images/exp5@post4a.png'></img>",
+        "b": "<img src='./images/exp5@post4b.png'></img>",
+        "c": "<img src='./images/exp5@post4c.png'></img>",
+        "d": "<img src='./images/exp5@post4d.png'></img>"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "<img src='./images/exp5@post5.png'></img>",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "b1 = 2, b2 = 0, b3 = 1, b4 = 2",
+        "b": "b1 = 1, b2 = 0, b3 = 2, b4 = 1",
+        "c": "b1 = 3, b2 = 0, b3 = 2, b4 = 1",
+        "d": "b1 = 1, b2 = 0, b3 = 1, b4 = 4"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
