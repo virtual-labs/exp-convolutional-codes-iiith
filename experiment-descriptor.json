@@ -29,6 +29,13 @@
       "content-type": "text"
     },
     {
+      "target": "demo.html",
+      "source": "simulation/demo.html",
+      "label": "Simulation",
+      "unit-type": "task",
+      "content-type": "Demo"
+    },
+    {
       "target": "simulation.html",
       "source": "simulation/index.html",
       "label": "Simulation",
