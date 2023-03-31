@@ -59,11 +59,13 @@
 
                             <b>Quick theory overview:</b>
                             <li>
-                                Encoding for \( (n, n-1) \) SPC code: The codeword corresponding to the message \(
-                                \left[ m_1,
-                                m_2, \dots, m_{n-1} \right ] \in \mathbb{F}_{2}^{n-1}\) will be \( \left[ m_1,
-                                m_2, \dots, m_{n-1}, p \right ] \in \mathbb{F}_{2}^{n} \), where \(p = m_1 + m_2 + \dots
-                                + m_{n-1}\).
+                                The operation of a convolutional code can be described conveniently using a state
+                                diagram.
+                            </li>
+                            <li>
+                                The present bits in the register correspond to the current state. The input
+                                u<sub>i</sub> is used to calculate the next state and output of the system based on the
+                                given convolutional encoder.
                             </li>
                         </ul>
 
@@ -74,15 +76,7 @@
                             <b>Procedure:</b>
 
                             <li>
-                                First enter a binary message and click on <b>Submit</b>.
-                            </li>
-
-                            <li>
-                                The entered message will be displayed in <b>Observations</b>.
-                            </li>
-
-                            <li>
-                                Encode the message using a \( (3, 2) \) Single Parity Check Code and click on
+                                Enter the next state and output values in the respective fields and click on
                                 <b>Submit</b>.
                             </li>
 
@@ -91,9 +85,19 @@
                             </li>
 
                             <li>
-                                If the answer is correct, click on <b>Reset</b> to try these steps again with a
-                                different binary message.
+                                If the entered answer is correct, the state diagram gets updated and the <b>Next</b>
+                                button gets enabled.
                             </li>
+
+                            <li>
+                                Click on <b>Next</b> to answer the next question.
+                            </li>
+
+                            <li>
+                                Repeat the same procedure and answer all the questions until the state diagram is
+                                complete.
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -109,7 +113,7 @@
                 <p>
                     Consider the following convolutional code.
                     <br>
-                    <img src="./images/convolutional_code.png" width="250">
+                    <img src="./images/convolutional_code.png" width="50%">
                 </p>
             </div>
         </div>
@@ -123,8 +127,8 @@
                 <div class="v-datalist-container components-list">
                     <div class="v-datalist-title">State Diagram</div>
                     <div id="state-diagram">
+                        <br>
                         <img id="page-1" src="./images/image-1.png" width="250">
-
                     </div>
                 </div>
             </div>
@@ -134,23 +138,28 @@
                     <br>
                     <br>
                     <form action="" method="get" id="form1" onsubmit="return false">
-                        If the current state is <b style="color: blue;">00</b> and the input is <b style="color: blue;">0</b>, the next state is
-                        <label for="m1"> </label>
-                        <input type="number" class="bit" id="m1" min="0" max="1">
+                        If the current state is <b style="color: blue;">00</b> and the input is <b
+                            style="color: blue;">0</b>, the next state is
+                        <div style="display: inline-block;">
 
-                        <label for="m2"> </label>
-                        <input type="number" class="bit" id="m2" min="0" max="1">
+                            <label for="m1"> </label>
+                            <input type="number" class="bit" id="m1" min="0" max="1">
 
+                            <label for="m2"> </label>
+                            <input type="number" class="bit" id="m2" min="0" max="1">
+                        </div>
                         <br>
                         <br>
 
-                        If the current state is <b style="color: blue;">00</b> and the input is <b style="color: blue;">0</b>, the output is
+                        If the current state is <b style="color: blue;">00</b> and the input is <b
+                            style="color: blue;">0</b>, the output is
+                        <div style="display: inline-block;">
+                            <label for="m3"> </label>
+                            <input type="number" class="bit" id="m3" min="0" max="1">
 
-                        <label for="m3"> </label>
-                        <input type="number" class="bit" id="m3" min="0" max="1">
-
-                        <label for="m4"> </label>
-                        <input type="number" class="bit" id="m4" min="0" max="1">
+                            <label for="m4"> </label>
+                            <input type="number" class="bit" id="m4" min="0" max="1">
+                        </div>
 
                     </form>
                     <br>
@@ -191,7 +200,8 @@
                     <br>
                     <br>
                     <form action="" method="get" id="form2" onsubmit="return false">
-                        If the current state is <b style="color: blue;">00</b> and the input is <b style="color: blue;">1</b>, the next state is
+                        If the current state is <b style="color: blue;">00</b> and the input is <b
+                            style="color: blue;">1</b>, the next state is
                         <label for="m5"> </label>
                         <input type="number" class="bit" id="m5" min="0" max="1">
 
@@ -201,7 +211,8 @@
                         <br>
                         <br>
 
-                        If the current state is <b style="color: blue;">00</b> and the input is <b style="color: blue;">1</b>, the output is
+                        If the current state is <b style="color: blue;">00</b> and the input is <b
+                            style="color: blue;">1</b>, the output is
 
                         <label for="m7"> </label>
                         <input type="number" class="bit" id="m7" min="0" max="1">
@@ -248,7 +259,8 @@
                     <br>
                     <br>
                     <form action="" method="get" id="form3" onsubmit="return false">
-                        If the current state is <b style="color: blue;">01</b> and the input is <b style="color: blue;">0</b>, the next state is
+                        If the current state is <b style="color: blue;">01</b> and the input is <b
+                            style="color: blue;">0</b>, the next state is
                         <label for="m9"> </label>
                         <input type="number" class="bit" id="m9" min="0" max="1">
 
@@ -258,7 +270,8 @@
                         <br>
                         <br>
 
-                        If the current state is <b style="color: blue;">01</b> and the input is <b style="color: blue;">0</b>, the output is
+                        If the current state is <b style="color: blue;">01</b> and the input is <b
+                            style="color: blue;">0</b>, the output is
 
                         <label for="m11"> </label>
                         <input type="number" class="bit" id="m11" min="0" max="1">
@@ -305,7 +318,8 @@
                     <br>
                     <br>
                     <form action="" method="get" id="form4" onsubmit="return false">
-                        If the current state is <b style="color: blue;">01</b> and the input is <b style="color: blue;">1</b>, the next state is
+                        If the current state is <b style="color: blue;">01</b> and the input is <b
+                            style="color: blue;">1</b>, the next state is
                         <label for="m13"> </label>
                         <input type="number" class="bit" id="m13" min="0" max="1">
 
@@ -315,7 +329,8 @@
                         <br>
                         <br>
 
-                        If the current state is <b style="color: blue;">01</b> and the input is <b style="color: blue;">1</b>, the output is
+                        If the current state is <b style="color: blue;">01</b> and the input is <b
+                            style="color: blue;">1</b>, the output is
 
                         <label for="m15"> </label>
                         <input type="number" class="bit" id="m15" min="0" max="1">
@@ -362,7 +377,8 @@
                     <br>
                     <br>
                     <form action="" method="get" id="form5" onsubmit="return false">
-                        If the current state is <b style="color: blue;">10</b> and the input is <b style="color: blue;">0</b>, the next state is
+                        If the current state is <b style="color: blue;">10</b> and the input is <b
+                            style="color: blue;">0</b>, the next state is
                         <label for="m17"> </label>
                         <input type="number" class="bit" id="m17" min="0" max="1">
 
@@ -372,7 +388,8 @@
                         <br>
                         <br>
 
-                        If the current state is <b style="color: blue;">10</b> and the input is <b style="color: blue;">0</b>, the output is
+                        If the current state is <b style="color: blue;">10</b> and the input is <b
+                            style="color: blue;">0</b>, the output is
 
                         <label for="m19"> </label>
                         <input type="number" class="bit" id="m19" min="0" max="1">
@@ -419,7 +436,8 @@
                     <br>
                     <br>
                     <form action="" method="get" id="form6" onsubmit="return false">
-                        If the current state is <b style="color: blue;">10</b> and the input is <b style="color: blue;">1</b>, the next state is
+                        If the current state is <b style="color: blue;">10</b> and the input is <b
+                            style="color: blue;">1</b>, the next state is
                         <label for="m21"> </label>
                         <input type="number" class="bit" id="m21" min="0" max="1">
 
@@ -429,7 +447,8 @@
                         <br>
                         <br>
 
-                        If the current state is <b style="color: blue;">10</b> and the input is <b style="color: blue;">1</b>, the output is
+                        If the current state is <b style="color: blue;">10</b> and the input is <b
+                            style="color: blue;">1</b>, the output is
 
                         <label for="m23"> </label>
                         <input type="number" class="bit" id="m23" min="0" max="1">
@@ -476,7 +495,8 @@
                     <br>
                     <br>
                     <form action="" method="get" id="form7" onsubmit="return false">
-                        If the current state is <b style="color: blue;">11</b> and the input is <b style="color: blue;">0</b>, the next state is
+                        If the current state is <b style="color: blue;">11</b> and the input is <b
+                            style="color: blue;">0</b>, the next state is
                         <label for="m25"> </label>
                         <input type="number" class="bit" id="m25" min="0" max="1">
 
@@ -486,7 +506,8 @@
                         <br>
                         <br>
 
-                        If the current state is <b style="color: blue;">11</b> and the input is <b style="color: blue;">0</b>, the output is
+                        If the current state is <b style="color: blue;">11</b> and the input is <b
+                            style="color: blue;">0</b>, the output is
 
                         <label for="m27"> </label>
                         <input type="number" class="bit" id="m27" min="0" max="1">
@@ -533,7 +554,8 @@
                     <br>
                     <br>
                     <form action="" method="get" id="form8" onsubmit="return false">
-                        If the current state is <b style="color: blue;">11</b> and the input is <b style="color: blue;">1</b>, the next state is
+                        If the current state is <b style="color: blue;">11</b> and the input is <b
+                            style="color: blue;">1</b>, the next state is
                         <label for="m29"> </label>
                         <input type="number" class="bit" id="m29" min="0" max="1">
 
@@ -543,7 +565,8 @@
                         <br>
                         <br>
 
-                        If the current state is <b style="color: blue;">11</b> and the input is <b style="color: blue;">1</b>, the output is
+                        If the current state is <b style="color: blue;">11</b> and the input is <b
+                            style="color: blue;">1</b>, the output is
 
                         <label for="m31"> </label>
                         <input type="number" class="bit" id="m31" min="0" max="1">
