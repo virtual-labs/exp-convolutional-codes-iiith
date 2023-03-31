@@ -31,9 +31,9 @@
     {
       "target": "demo.html",
       "source": "simulation/demo.html",
-      "label": "Simulation",
+      "label": "Demo",
       "unit-type": "task",
-      "content-type": "Demo"
+      "content-type": "simulation"
     },
     {
       "target": "simulation.html",
