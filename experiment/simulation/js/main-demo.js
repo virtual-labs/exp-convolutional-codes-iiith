@@ -93,6 +93,8 @@ function display() {
         document.getElementById("sixth-4").style.display = "block";
 
         document.getElementById("rcv-5").style.display = "block";
+
+        document.getElementById("observations").innerHTML="Forward pass has been completed.";
     }
 
 
@@ -105,6 +107,8 @@ function display() {
 
         document.getElementById("msg-5").style.display = "block";
         document.getElementById("msg").style.display = "block";
+
+        document.getElementById("observations").innerHTML="";
     }
 
     if (count == 7) {
