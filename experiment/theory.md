@@ -19,10 +19,10 @@ $$\mathbf{g}^{(0)} = [1 1 1] $$
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(1) $$\mathbf{g}^{(1)} = [0 1 1].$$ 
 The $t$-th output bit $v_t^{(j)}$ of output sequence $\mathbf{v}^{(j)}$ for $j = 1, 2$ is given by <br />
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $v_t^{(j)} =$ $\mathbf{u}$ $\star$ $\mathbf{g}^{(j)}$
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  $:=$ $\sum_{i=0}^m$  $u_{t-i} g_i^{(j)}$ 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  $:=$ $\sum_{i=0}^m$  $u_{t-i} g_i^{(j)}$ 
 <br/>
 
-&nbsp;&nbsp;&nbsp; $=$ $u_t$ $g_0^{(j)}$ $+$ $u_{t-1}$ $g_1^{(j)}$ $+$ ... $+$ $u_{t-m}$ $g_m^{(j)}$, <br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $=$ $u_t$ $g_0^{(j)}$ $+$ $u_{t-1}$ $g_1^{(j)}$ $+$ ... $+$ $u_{t-m}$ $g_m^{(j)}$, <br />
 where $\star$ denotes the convolution operation. From Eq (1), for the encoder illustrated in Figure 1, at any time instance $t$,  $v_t^{(0)}$ and $v_t^{(1)}$ are given by <br/>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  $v_t^{(0)}$ $=$ $u_t + u_{t-1} + u_{t-2}$  
 <br/>
