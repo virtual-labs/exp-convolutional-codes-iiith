@@ -15,18 +15,18 @@ For Figure 1, we have $m=2$. The input bitstream is denoted by $\mathbf{u} = [u_
 $\mathbf{v}^{(0)} = [v_0^{(0)}, v_1^{(0)}, v_2^{(0)}, ...]$ and $\mathbf{v}^{(1)} = [v_0^{(1)}, v_1^{(1)}, v_2^{(1)},...]$ such that the final encoded bitstream is given by  $\mathbf{v}$ $=$ $[v_0^{(0)}, v_0^{(1)}, v_1^{(0)}, v_1^{(1)}, v_2^{(0)}, v_2^{(1)}, ...]$.
 
 Let $\mathbf{g}^{(0)}$ and $\mathbf{g}^{(1)}$ denote the connections corresponding to the first and second output of the encoder. In general, each $\mathbf{g}^{(j)}$ corresponds to the impulse response of the linear system corresponding to the encoder. For a non-systematic feedforeward encoder with memory $m$, each $\mathbf{g}^{(j)}$ will be a vector of length $m+1$ given by $\mathbf{g}^{(j)} = [g_0^{(j)} g_1^{(j)} g_m^{(j)} ...]$. $\mathbf{g}^{(0)}$ and $\mathbf{g}^{(1)}$ are called _generator sequences_ of the encoder. For the encoder illustrated in Figure 1, $\mathbf{g}^{(0)}$ and $\mathbf{g}^{(1)}$ are given by
-$$\mathbf{g}^{(0)} = [1 1 1] $$
-$$\mathbf{g}^{(1)} = [0 1 1].$$ &nbsp;&nbsp;(1)
+$$\mathbf{g}^{(0)} = [1 1 1] $$ 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(1) $$\mathbf{g}^{(1)} = [0 1 1].$$ 
 The $t$-th output bit $v_t^{(j)}$ of output sequence $\mathbf{v}^{(j)}$ for $j = 1, 2$ is given by <br />
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $v_t^{(j)} =$ $\mathbf{u}$ $\star$ $\mathbf{g}^{(j)}$
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  $:=$ $\sum_{i=0}^m$  $u_{t-i} g_i^{(j)}$ 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $v_t^{(j)} =$ $\mathbf{u}$ $\star$ $\mathbf{g}^{(j)}$
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  $:=$ $\sum_{i=0}^m$  $u_{t-i} g_i^{(j)}$ 
 <br/>
 
 &nbsp;&nbsp;&nbsp; $=$ $u_t$ $g_0^{(j)}$ $+$ $u_{t-1}$ $g_1^{(j)}$ $+$ ... $+$ $u_{t-m}$ $g_m^{(j)}$, <br />
 where $\star$ denotes the convolution operation. From Eq (1), for the encoder illustrated in Figure 1, at any time instance $t$,  $v_t^{(0)}$ and $v_t^{(1)}$ are given by <br/>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  $v_t^{(0)}$ $=$ $u_t + u_{t-1} + u_{t-2}$  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  $v_t^{(0)}$ $=$ $u_t + u_{t-1} + u_{t-2}$  
 <br/>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  $v_t^{(1)}$ $=$ $u_{t-1} + u_{t-2}$. 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  $v_t^{(1)}$ $=$ $u_{t-1} + u_{t-2}$. 
 
 
 It can be seen that the $t$-th output bit depends on $m$ previous input bits and hence the encoder is said to have memory $m$. Since the output bit is obtained by taking convolution of the input bitstream and the generator sequence, this code is called as _convolutional code_.  <br />
