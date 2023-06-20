@@ -16,13 +16,17 @@ $\mathbf{v}^{(0)} = [v_0^{(0)}, v_1^{(0)}, v_2^{(0)}, ...]$ and $\mathbf{v}^{(1)
 
 Let $\mathbf{g}^{(0)}$ and $\mathbf{g}^{(1)}$ denote the connections corresponding to the first and second output of the encoder. In general, each $\mathbf{g}^{(j)}$ corresponds to the impulse response of the linear system corresponding to the encoder. For a non-systematic feedforeward encoder with memory $m$, each $\mathbf{g}^{(j)}$ will be a vector of length $m+1$ given by $\mathbf{g}^{(j)} = [g_0^{(j)} g_1^{(j)} g_m^{(j)} ...]$. $\mathbf{g}^{(0)}$ and $\mathbf{g}^{(1)}$ are called _generator sequences_ of the encoder. For the encoder illustrated in Figure 1, $\mathbf{g}^{(0)}$ and $\mathbf{g}^{(1)}$ are given by
 $$\mathbf{g}^{(0)} = [1 1 1] $$
-$$\mathbf{g}^{(1)} = [0 1 1].$$
+$$\mathbf{g}^{(1)} = [0 1 1].$$   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)
 The $t$-th output bit $v_t^{(j)}$ of output sequence $\mathbf{v}^{(j)}$ for $j = 1, 2$ is given by <br />
-$v_t^{(j)} =$ $\mathbf{u}$ $\star$ $\mathbf{g}^{(j)}$
+&nbsp;&nbsp;&nbsp; $v_t^{(j)} =$ $\mathbf{u}$ $\star$ $\mathbf{g}^{(j)}$
 $:=$ $\sum_{i=0}^m$  $u_{t-i} g_i^{(j)}$ 
-$=$ $u_t$ $g_0^{(j)}$ $+$ $u_{t-1}$ $g_1^{(j)}$ $+$ ... $+$ $u_{t-m}$ $g_m^{(j)}$, <br />
-where $\star$ denotes the convolution operation. From Eq (1), for the encoder illustrated in Figure 1, at any time instance $t$,  $v_t^{(0)}$ and $v_t^{(1)}$ are given by  $v_t^{(0)}$ $=$ $u_t + u_{t-1} + u_{t-2}$
-$v_t^{(1)}$ $=$ $u_{t-1} + u_{t-2}$. 
+<br/>
+
+&nbsp;&nbsp;&nbsp; $=$ $u_t$ $g_0^{(j)}$ $+$ $u_{t-1}$ $g_1^{(j)}$ $+$ ... $+$ $u_{t-m}$ $g_m^{(j)}$, <br />
+where $\star$ denotes the convolution operation. From Eq (1), for the encoder illustrated in Figure 1, at any time instance $t$,  $v_t^{(0)}$ and $v_t^{(1)}$ are given by  &nbsp;&nbsp;&nbsp;  $v_t^{(0)}$ $=$ $u_t + u_{t-1} + u_{t-2}$  
+<br/>
+
+&nbsp;&nbsp;&nbsp;  $v_t^{(1)}$ $=$ $u_{t-1} + u_{t-2}$. 
 
 
 It can be seen that the $t$-th output bit depends on $m$ previous input bits and hence the encoder is said to have memory $m$. Since the output bit is obtained by taking convolution of the input bitstream and the generator sequence, this code is called as _convolutional code_.  <br />
@@ -33,9 +37,10 @@ In Figure 1, we considered non-systematic feedforeward encoder implementation. O
 ## 1.1 State and trellis diagram of a convolutional code
 The operation of a convolutional code can be described conveniently using the state and trellis diagram associated with it. We will continue using example of Figure 1 to explain the basics of state and trellis diagram. Recall that for this example, at any time instant $t$, the input bit is $u_t$, the contents of the shift registers are $u_{t-1}$ and $u_{t-2}$, and the output bits are $v_t^{(0)}$ and $v_t^{(1)}$.
 <br />
+<br />
 The state of an encoder is defined as the contents of its shift registers. Let $\sigma_t$ denotes the state at time $t$. Then for Figure 1, $\sigma_t$ is given by
 
- $\sigma_t$ $=$ $(u_{t-1}  u_{t-2})$.
+&nbsp;&nbsp;&nbsp;  $\sigma_t$ $=$ $(u_{t-1}  u_{t-2})$.
 
 It can be seen that $\sigma_t$ can take all possible $4$ values ($00, 01, 10,11$) corresponding to all possible values $u_{t-1}$ and $u_{t-2}$ can take.
 Suppose the encoder is at state $\sigma_t = (u_{t-1}   u_{t-2})$. Then for the input $u_t$ the encoder will jump to to state $\sigma_{t+1} = (u_{t}  u_{t-1})$ and the corresponding output bits will be $v_t^{(0)}= u_t + u_{t-1} + u_{t-2}$ and $v_t^{(1)}=  u_{t-1} + u_{t-2}$. 
@@ -64,10 +69,10 @@ Let $a_i$ and $b_i$ be the state metrics associated with the state $S_i$ at pres
 Suppose the state metrics $a_i$ associated with the present states are known. Then the state metrics $b_i$ associated with the next states are computed as illustrated in Figure 4. Observe that at time instant $t+1$, there are exactly two arriving paths at any state and the computation of $b_i$ corresponds to choosing the path with minimum weight. Further at any next state, discard the arriving path that corresponds to larger value.If there are ties, discard any path arbitrarily. 
 
 For example, suppose $a_1 = 1, a_2=2,$ and $[r_1 r_2] = [1  0]$. Then $b_1$ will be computed as follows <br />
-$b_1$ $=$ $\min(a_1+d_H\big([r_1  r_2], [0 0]\big), a_2+d_H\big([r_1  r_2], [1 1]\big)\Big)$ <br />
-$=$ $\min\Big(1+d_H\big([1  0], [0  0]\big), 2+d_H\big([1  0], [1 1]\big)\Big)$  <br />
-$=$ $\min\Big(1+1, 2+1\Big)$  <br />
-$=$ $2.$ <br />
+&nbsp;&nbsp;&nbsp;  $b_1$ $=$ $\min(a_1+d_H\big([r_1  r_2], [0 0]\big), a_2+d_H\big([r_1  r_2], [1 1]\big)\Big)$ <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  $=$ $\min\Big(1+d_H\big([1  0], [0  0]\big), 2+d_H\big([1  0], [1 1]\big)\Big)$  <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  $=$ $\min\Big(1+1, 2+1\Big)$  <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  $=$ $2.$ <br />
 The path from $S_2$ to $S_1$ is discarded from the trellis since it has a larger weight. 
 ![alt text](./images/exp5-figure4.png)
 <br /> It can be observed from the previous paragraph that, for every state at any time instant $t$, the arriving path with the minimum Hamming weight is chosen. This forms the key idea of the Viterbi algorithm. We are now ready now summarize the steps of Viterbi algorithm.
