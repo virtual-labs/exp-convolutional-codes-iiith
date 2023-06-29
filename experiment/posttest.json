@@ -46,7 +46,7 @@
         "difficulty": "beginner"
       },
       {
-        "question": "5. Consider the $\\mathbf{t}$-th section of the trellis diagram illustrated in Figure (b). Let $\\mathbf{a_1 = 1, a_2 = 4, a_3 = 0, a_4 = 2}$ and $\\mathbf{[r_1 \\hspace{0.1cm}r_2] = [1 \\hspace{0.1cm} 1]}$. What will be $\\mathbf{b_1, b_2, b_3, b_4}?$ <img src='./images/figure~(b).png'></img>",
+        "question": "5. Consider the $\\mathbf{t}$-th section of the trellis diagram illustrated in Figure (b). Let $\\mathbf{a_1 = 1, a_2 = 4, a_3 = 0, a_4 = 2}$ and $\\mathbf{[r_1 \\hspace{0.1cm}r_2] = [1 \\hspace{0.1cm} 1]}$. What will be $\\mathbf{b_1, b_2, b_3, b_4}?$ $\\\\$<img src='./images/figure~(b).png'></img>",
         "answers": {
           "a": "$b_1=2, b_2=0, b_3=1, b_4=2$",
           "b": "$b_1=1, b_2=0, b_3=2, b_4=1$",
