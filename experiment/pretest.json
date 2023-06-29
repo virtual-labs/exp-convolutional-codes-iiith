@@ -35,7 +35,7 @@
         "difficulty": "beginner"
       },
       {
-        "question": "Suppose the received sequence is decoded using Viterbi decoder. Select the incorrect statement.",
+        "question": "4. Suppose the received sequence is decoded using Viterbi decoder. Select the incorrect statement.",
         "answers": {
           "a": "Viterbi algorithm provides maximum likelihood decoding.",
           "b": "Viterbi algorithm can also be applied when the encoder does not start in all-zero state.",
