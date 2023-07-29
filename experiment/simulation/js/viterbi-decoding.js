@@ -486,8 +486,8 @@ function check() {
             }
         }
 
-        if (blackLineCnt == 0) {
-            obs.innerHTML = "Click on the lines to perform backtracing";
+        if (blackLineCnt != 5) {
+            obs.innerHTML = "Click on five lines to perform backtracing";
             obs.style.color = "black";
         }
 
@@ -497,6 +497,14 @@ function check() {
             obs.innerHTML = "<b>Correct Answer!!!</b> <br> You have successfully completed the decoding and the decoded message is <b>01100</b>.";
             obs.style.color = "green";
         }
+
+        else if ((lines.item(0).style.stroke == "black" && lines.item(8).style.stroke == "black"
+            && lines.item(16).style.stroke == "black" && lines.item(24).style.stroke == "black"
+            && lines.item(33).style.stroke == "black") && blackLineCnt == 5) {
+            obs.innerHTML = "<b>Correct Answer!!!</b> <br> You have successfully completed the decoding and the decoded message is <b>00001</b>.";
+            obs.style.color = "green";
+        }
+
 
         else {
             obs.style.color = "red";
