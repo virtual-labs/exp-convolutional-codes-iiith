@@ -30,7 +30,7 @@ The tasks in Demo are self explanatory. There are three tasks in Simulation.
 * The correctness of the entered answer is displayed in <b>Observations</b>.
 *  If the answer is correct, proceed to the next state and repeat the process.
 * After correctly entering the path metrics and choosing the paths for all the five stages, a message stating that forward tracing is completed will be displayed in <b>Observations</b>.
-* Then, starting from state 00, trace back along the path from right to left by clicking on the lines. Clicking on a path changes its color to
+* Then, starting from the state with the least path metric, trace back along the path from right to left by clicking on the lines. Clicking on a path changes its color to
 black indicating that it has been selected.
 * After selecting the path, click on <b>Submit</b>.
 * The correctness of the entered answer is displayed in <b>Observations</b>.
