@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <title>
+        Encoding - Convolutional code
+    </title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-one-quarter v-instruction-title">
+                Tasks
+            </div>
+            <div class="column">
+                <div class="v-tabs">
+                    <ul>
+
+                        <li class="is-active" id="Task1">
+                            <a>
+                                Encoding
+                            </a>
+                        </li>
+
+                        <li id="Task2" onclick="window.location.href = 'state-diagram.html';">
+                            <a>
+                                State Diagram
+                            </a>
+                        </li>
+
+                        <li id="Task3" onclick="window.location.href = 'viterbi-decoding.html';">
+                            <a>
+                                Viterbi Decoding
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="v-collapsible-instruction-container v-instruction-container">
+                    <div class="v-collapsible is-size-5">Instructions </div>
+                    <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+                        <ul style="list-style: disc;">
+
+                            <b>Quick theory overview:</b>
+                            <li>
+                                The codeword of a convolutional code can be obtained by directly giving the message
+                                the convolutional encoder, without dividing it into short message blocks.
+                            </li>
+                            <li>
+                                The output of convolutional encoder is the encoded bitstream corresponding to the input
+                                bitstream.
+                            </li>
+                        </ul>
+
+                        <br>
+
+                        <ul style="list-style: disc;">
+
+                            <b>Procedure:</b>
+
+                            <li>
+                                First enter a binary message and click on <b>Submit</b>.
+                            </li>
+
+                            <li>
+                                The entered message will be displayed in <b>Observations</b>.
+                            </li>
+
+                            <li>
+                                Encode the message using the given convolutional encoder and click on
+                                <b>Submit</b>.
+                            </li>
+
+                            <li>
+                                The correctness of the entered answer is displayed in <b>Observations</b>.
+                            </li>
+
+                            <li>
+                                If the answer is correct, click on <b>Reset</b> to try these steps again with a
+                                different binary message.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="columns is-centered">
+        <div class="column is-11-desktop is-12-tablet is-12-mobile">
+            <div class="v-datalist-container components-list">
+                <p>
+                    Encode a message of your choice using the following convolutional code.
+                    <br>
+                    <img src="./images/convolutional_code.png" width="60%">
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+        style="margin-top:-1.5%">
+        <div class="column is-8-desktop is-12-tablet is-12-mobile">
+            <div class="box-question">
+
+
+
+                <section id="part1">
+                    <form action="" method="get" id="form1" onsubmit="return false">
+
+                        <br>
+                        <div>
+                            Enter a <b>6-bit</b> message &nbsp;
+                        </div>
+                        <br>
+                        <div style="display: inline-flex; align-items:first baseline;">
+
+
+                            <div>
+                                <label for="m1"> </label>
+                                <input type="number" class="bit" id="m1" min="0" max="1">
+                                <div><i>u<sub>5</sub></i></div>
+                            </div>
+                            &nbsp;
+                            <div>
+                                <label for="m2"> </label>
+                                <input type="number" class="bit" id="m2" min="0" max="1">
+                                <div><i>u<sub>4</sub></i></div>
+                            </div>
+                            &nbsp;
+                            <div>
+                                <label for="m3"> </label>
+                                <input type="number" class="bit" id="m3" min="0" max="1">
+                                <div><i>u<sub>3</sub></i></div>
+                            </div>
+                            &nbsp;
+                            <div>
+                                <label for="m4"> </label>
+                                <input type="number" class="bit" id="m4" min="0" max="1">
+                                <div><i>u<sub>2</sub></i></div>
+                            </div>
+                            &nbsp;
+                            <div>
+                                <label for="m5"> </label>
+                                <input type="number" class="bit" id="m5" min="0" max="1">
+                                <div><i>u<sub>1</sub></i></div>
+                            </div>
+                            &nbsp;
+                            <div>
+                                <label for="m6"> </label>
+                                <input type="number" class="bit" id="m6" min="0" max="1">
+                                <div><i>u<sub>0</sub></i></div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                    <br>
+                    <button class="v-button" onclick="display()" form="form1">Submit</button>
+
+                </section>
+
+                <section id="part2" style="display: none;">
+                    <form action="" method="get" id="form2" onsubmit="return false">
+                        Enter the codeword corresponding to the message.
+                        <br>
+                        <br>
+                        <div style="display: inline-flex; align-items:first baseline; flex-wrap: wrap;">
+
+                            <div>
+                                <label for="b1"> </label>
+                                <input type="number" class="bit" id="b1" min="0" max="1">
+                                <div><i>v<sub>0</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b2"> </label>
+                                <input type="number" class="bit" id="b2" min="0" max="1">
+                                <div><i>v<sub>0</sub><sup>(1)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b3"> </label>
+                                <input type="number" class="bit" id="b3" min="0" max="1">
+                                <div><i>v<sub>1</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b4"> </label>
+                                <input type="number" class="bit" id="b4" min="0" max="1">
+                                <div><i>v<sub>1</sub><sup>(1)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b5"> </label>
+                                <input type="number" class="bit" id="b5" min="0" max="1">
+                                <div><i>v<sub>2</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b6"> </label>
+                                <input type="number" class="bit" id="b6" min="0" max="1">
+                                <div><i>v<sub>2</sub><sup>(1)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b7"> </label>
+                                <input type="number" class="bit" id="b7" min="0" max="1">
+                                <div><i>v<sub>3</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b8"> </label>
+                                <input type="number" class="bit" id="b8" min="0" max="1">
+                                <div><i>v<sub>3</sub><sup>(1)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b9"> </label>
+                                <input type="number" class="bit" id="b9" min="0" max="1">
+                                <div><i>v<sub>4</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b10"> </label>
+                                <input type="number" class="bit" id="b10" min="0" max="1">
+                                <div><i>v<sub>4</sub><sup>(1)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b11"> </label>
+                                <input type="number" class="bit" id="b11" min="0" max="1">
+                                <div><i>v<sub>5</sub><sup>(0)</sup></i></div>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <label for="b12"> </label>
+                                <input type="number" class="bit" id="b12" min="0" max="1">
+                                <div><i>v<sub>5</sub><sup>(0)</sup></i></div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <br>
+                    <button class="v-button" onclick="check()" form="form2">Submit</button>
+                    <button class="v-button" onclick="initial()">Reset</button>
+                </section>
+
+            </div>
+        </div>
+
+        <div class="column is-3-desktop is-4-tablet is-12-mobile">
+            <div class="v-datalist-container components-list">
+                <div class="v-datalist-title">Observations</div>
+                <div id="observations">
+                    <span id="mEntered">
+                    </span>
+                    <br>
+                    <span id="cEntered">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+    <script src="./js/encoding.js"></script>
+<script src="../assets/js/iframeResize.js"></script></body>
+
+</html>

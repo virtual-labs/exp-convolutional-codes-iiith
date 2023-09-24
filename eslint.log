@@ -1,0 +1,101 @@
+
+/home/runner/work/exp-convolutional-codes-iiith/exp-convolutional-codes-iiith/experiment/simulation/js/demo.js
+   40:10  warning  'nextStage' is defined but never used  no-unused-vars
+  164:10  warning  'reset' is defined but never used      no-unused-vars
+
+/home/runner/work/exp-convolutional-codes-iiith/exp-convolutional-codes-iiith/experiment/simulation/js/encoding.js
+    5:10  warning  'display' is defined but never used  no-unused-vars
+   60:10  warning  'check' is defined but never used    no-unused-vars
+  157:10  warning  'initial' is defined but never used  no-unused-vars
+
+/home/runner/work/exp-convolutional-codes-iiith/exp-convolutional-codes-iiith/experiment/simulation/js/main-demo.js
+    5:10  warning  'display' is defined but never used  no-unused-vars
+  150:10  warning  'reset' is defined but never used    no-unused-vars
+
+/home/runner/work/exp-convolutional-codes-iiith/exp-convolutional-codes-iiith/experiment/simulation/js/state-diagram.js
+    1:10  warning  'answer1' is defined but never used  no-unused-vars
+   49:10  warning  'answer2' is defined but never used  no-unused-vars
+   97:10  warning  'answer3' is defined but never used  no-unused-vars
+  145:10  warning  'answer4' is defined but never used  no-unused-vars
+  193:10  warning  'answer5' is defined but never used  no-unused-vars
+  241:10  warning  'answer6' is defined but never used  no-unused-vars
+  289:10  warning  'answer7' is defined but never used  no-unused-vars
+  337:10  warning  'answer8' is defined but never used  no-unused-vars
+  384:10  warning  'page2' is defined but never used    no-unused-vars
+  393:10  warning  'page3' is defined but never used    no-unused-vars
+  402:10  warning  'page4' is defined but never used    no-unused-vars
+  411:10  warning  'page5' is defined but never used    no-unused-vars
+  420:10  warning  'page6' is defined but never used    no-unused-vars
+  429:10  warning  'page7' is defined but never used    no-unused-vars
+  438:10  warning  'page8' is defined but never used    no-unused-vars
+
+/home/runner/work/exp-convolutional-codes-iiith/exp-convolutional-codes-iiith/experiment/simulation/js/viterbi-decoding.js
+   13:10  warning  'toggle1' is defined but never used  no-unused-vars
+   14:5   warning  'lineid' is not defined              no-undef
+   18:17  warning  'lineid' is not defined              no-undef
+   19:17  warning  'lineid' is not defined              no-undef
+   22:17  warning  'lineid' is not defined              no-undef
+   27:33  warning  'lineid' is not defined              no-undef
+   28:13  warning  'lineid' is not defined              no-undef
+   29:13  warning  'lineid' is not defined              no-undef
+   30:17  warning  'lineid' is not defined              no-undef
+   31:17  warning  'lineid' is not defined              no-undef
+   34:17  warning  'lineid' is not defined              no-undef
+   39:13  warning  'lineid' is not defined              no-undef
+   40:13  warning  'lineid' is not defined              no-undef
+   46:10  warning  'toggle2' is defined but never used  no-unused-vars
+   47:5   warning  'lineid' is not defined              no-undef
+   51:17  warning  'lineid' is not defined              no-undef
+   52:17  warning  'lineid' is not defined              no-undef
+   55:17  warning  'lineid' is not defined              no-undef
+   60:33  warning  'lineid' is not defined              no-undef
+   61:13  warning  'lineid' is not defined              no-undef
+   62:13  warning  'lineid' is not defined              no-undef
+   63:17  warning  'lineid' is not defined              no-undef
+   64:17  warning  'lineid' is not defined              no-undef
+   67:17  warning  'lineid' is not defined              no-undef
+   72:13  warning  'lineid' is not defined              no-undef
+   73:13  warning  'lineid' is not defined              no-undef
+   78:10  warning  'toggle3' is defined but never used  no-unused-vars
+   79:5   warning  'lineid' is not defined              no-undef
+   83:17  warning  'lineid' is not defined              no-undef
+   84:17  warning  'lineid' is not defined              no-undef
+   87:17  warning  'lineid' is not defined              no-undef
+   92:33  warning  'lineid' is not defined              no-undef
+   93:13  warning  'lineid' is not defined              no-undef
+   94:13  warning  'lineid' is not defined              no-undef
+   95:17  warning  'lineid' is not defined              no-undef
+   96:17  warning  'lineid' is not defined              no-undef
+   99:17  warning  'lineid' is not defined              no-undef
+  104:13  warning  'lineid' is not defined              no-undef
+  105:13  warning  'lineid' is not defined              no-undef
+  110:10  warning  'toggle4' is defined but never used  no-unused-vars
+  111:5   warning  'lineid' is not defined              no-undef
+  115:17  warning  'lineid' is not defined              no-undef
+  116:17  warning  'lineid' is not defined              no-undef
+  119:17  warning  'lineid' is not defined              no-undef
+  124:33  warning  'lineid' is not defined              no-undef
+  125:13  warning  'lineid' is not defined              no-undef
+  126:13  warning  'lineid' is not defined              no-undef
+  127:17  warning  'lineid' is not defined              no-undef
+  128:17  warning  'lineid' is not defined              no-undef
+  131:17  warning  'lineid' is not defined              no-undef
+  136:13  warning  'lineid' is not defined              no-undef
+  137:13  warning  'lineid' is not defined              no-undef
+  142:10  warning  'toggle5' is defined but never used  no-unused-vars
+  143:5   warning  'lineid' is not defined              no-undef
+  147:17  warning  'lineid' is not defined              no-undef
+  148:17  warning  'lineid' is not defined              no-undef
+  151:17  warning  'lineid' is not defined              no-undef
+  156:33  warning  'lineid' is not defined              no-undef
+  157:13  warning  'lineid' is not defined              no-undef
+  158:13  warning  'lineid' is not defined              no-undef
+  159:17  warning  'lineid' is not defined              no-undef
+  160:17  warning  'lineid' is not defined              no-undef
+  163:17  warning  'lineid' is not defined              no-undef
+  168:13  warning  'lineid' is not defined              no-undef
+  169:13  warning  'lineid' is not defined              no-undef
+  174:10  warning  'check' is defined but never used    no-unused-vars
+
+✖ 88 problems (0 errors, 88 warnings)
+

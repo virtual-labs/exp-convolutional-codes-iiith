@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <link rel="stylesheet" href="./css/viterbi-decoding.css">
+    <link rel="stylesheet" href="./css/demo.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <title>
+        Viterbi Decoding
+    </title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-one-quarter v-instruction-title">
+                Tasks
+            </div>
+            <div class="column">
+                <div class="v-tabs">
+                    <ul>
+                        <li id="Task1" onclick="window.location.href = 'index.html';">
+                            <a>
+                                Encoding
+                            </a>
+                        </li>
+
+                        <li id="Task2" onclick="window.location.href = 'state-diagram.html';">
+                            <a>
+                                State Diagram
+                            </a>
+                        </li>
+
+                        <li class="is-active" id="Task3">
+                            <a>
+                                Viterbi Decoding
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="v-collapsible-instruction-container v-instruction-container">
+                    <div class="v-collapsible is-size-5">Instructions </div>
+                    <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+                        <ul style="list-style: disc;">
+
+                            <b>Quick theory overview:</b>
+                            <li>
+                                Complete the Demos and read the theory before attempting this simulation.
+                            </li>
+                        </ul>
+
+                        <br>
+
+                        <ul style="list-style: disc;">
+
+                            <b>Procedure:</b>
+
+                            <li>
+                                First enter values in all the four fields. The values can be 0, 1 or &infin;. Type 'in'
+                                if the value is &infin;.
+                            </li>
+                            <li>
+                                Then, select the four paths with the least path metric by clicking on four lines. The
+                                line changes its opacity when clicked. When the line's opacity is dark, it indicates
+                                that the line is currently selected, whereas if it is transparent, it indicates that the
+                                line is not selected. Click exactly on the line to select it. Clicking in the vicinity
+                                will not work.
+                            </li>
+                            <li>
+                                After entering the four values and selecting the four paths click on
+                                <b>Submit</b>.
+                            </li>
+
+                            <li>
+                                The correctness of the entered answer is displayed in <b>Observations</b>.
+                            </li>
+
+                            <li>
+                                If the answer is correct, proceed to the next state and repeat the process.
+                            </li>
+
+                            <li>
+                                After correctly entering the path metrics and choosing the paths for all the five
+                                stages, a message stating that forward tracing is completed will be displayed in
+                                <b>Observations</b>.
+                            </li>
+
+                            <li>
+                                Then, starting from the state with the least path metric, trace back along the path
+                                from right to left by clicking on the lines. Clicking on a path changes its color to
+                                black
+                                indicating that it has been selected.
+                            </li>
+
+                            <li>
+                                After selecting the path, click on <b>Submit</b>.
+                            </li>
+
+                            <li>
+                                The correctness of the entered answer is displayed in <b>Observations</b>.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="columns is-centered">
+        <div class="column is-11-desktop is-12-tablet is-12-mobile">
+            <div class="v-datalist-container components-list">
+                <p>
+                    Decode the received vector <span style="color:blue"><b>0001100011</b></span> using Viterbi's
+                    decoding algorithm.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+        style="margin-top:-1.5%">
+        <div class="column is-8-desktop is-12-tablet is-12-mobile">
+            <div class="box-question">
+                <form action="" method="get" id="form1" onsubmit="return false">
+                    <div class="algorithm-field">
+                        <svg id="zero-stage-canvas" height="22em" width="55em" viewBox="0 0 820 350"
+                            style="display:block">
+
+                            <!-- Received -->
+                            <foreignObject x="135" y="0" width="3em" height="4em">
+                                <div id="rcv-1" class="empty-block">00</div>
+                            </foreignObject>
+
+                            <foreignObject x="275" y="0" width="3em" height="4em">
+                                <div id="rcv-2" class="empty-block" style="display:none">01</div>
+                            </foreignObject>
+
+                            <foreignObject x="415" y="0" width="3em" height="4em">
+                                <div id="rcv-3" class="empty-block" style="display:none">10</div>
+                            </foreignObject>
+
+                            <foreignObject x="555" y="0" width="3em" height="4em">
+                                <div id="rcv-4" class="empty-block" style="display:none">00</div>
+                            </foreignObject>
+
+                            <foreignObject x="695" y="0" width="3em" height="4em">
+                                <div id="rcv-5" class="empty-block" style="display:none">11</div>
+                            </foreignObject>
+
+                            <!-- States -->
+                            <foreignObject x="0" y="40" width="3em" height="4em">
+                                <div class="empty-block">00</div>
+                            </foreignObject>
+
+                            <foreignObject x="0" y="120" width="3em" height="4em">
+                                <div class="empty-block">01</div>
+                            </foreignObject>
+
+                            <foreignObject x="0" y="200" width="3em" height="4em">
+                                <div class="empty-block">10</div>
+                            </foreignObject>
+
+                            <foreignObject x="0" y="280" width="3em" height="4em">
+                                <div class="empty-block">11</div>
+                            </foreignObject>
+
+                            <!-- First Stage Blocks -->
+                            <foreignObject x="60" y="40" width="5em" height="5em">
+                                <div id="first-1" class="block">0</div>
+                            </foreignObject>
+
+                            <foreignObject x="60" y="120" width="5em" height="5em">
+                                <div id="first-2" class="block">&infin;</div>
+                            </foreignObject>
+
+                            <foreignObject x="60" y="200" width="5em" height="5em">
+                                <div id="first-3" class="block">&infin;</div>
+                            </foreignObject>
+
+                            <foreignObject x="60" y="280" width="5em" height="5em">
+                                <div id="first-4" class="block">&infin;</div>
+                            </foreignObject>
+
+                            <line class="line1" id="l1" x1="120" y1="65" x2="200" y2="65" onclick="toggle1(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1; display:block"></line>
+                            <line class="line2" id="l2" x1="120" y1="70" x2="200" y2="225" onclick="toggle1(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1; display:block"></line>
+                            <line class="line1" id="l3" x1="120" y1="145" x2="200" y2="65" onclick="toggle1(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1; display:block"></line>
+                            <line class="line2" id="l4" x1="120" y1="150" x2="200" y2="225" onclick="toggle1(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1; display:block"></line>
+                            <line class="line1" id="l5" x1="120" y1="225" x2="200" y2="145" onclick="toggle1(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1; display:block"></line>
+                            <line class="line2" id="l6" x1="120" y1="230" x2="200" y2="310" onclick="toggle1(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1; display:block"></line>
+                            <line class="line1" id="l7" x1="120" y1="305" x2="200" y2="145" onclick="toggle1(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1; display:block"></line>
+                            <line class="line2" id="l8" x1="120" y1="310" x2="200" y2="310" onclick="toggle1(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1; display:block"></line>
+
+                            <!-- Outputs for first stage-->
+                            <foreignObject x="120" y="45" width="1.1em" height="0.9em">
+                                <div id="io-1" style="color:red; margin-top:-0.4em;">00</div>
+                            </foreignObject>
+
+                            <foreignObject x="120" y="100" width="1.1em" height="0.9em">
+                                <div id="io-2" style="color:blue; margin-top:-0.4em;">11</div>
+                            </foreignObject>
+
+                            <foreignObject x="120" y="115" width="1.1em" height="0.9em">
+                                <div id="io-3" style="color:red; margin-top:-0.4em;">11</div>
+                            </foreignObject>
+
+                            <foreignObject x="120" y="170" width="1.1em" height="0.9em">
+                                <div id="io-4" style="color:blue; margin-top:-0.4em;">00</div>
+                            </foreignObject>
+
+                            <foreignObject x="120" y="190" width="1.1em" height="0.9em">
+                                <div id="io-5" style="color:red; margin-top:-0.4em;">01</div>
+                            </foreignObject>
+
+                            <foreignObject x="120" y="248" width="1.1em" height="0.9em">
+                                <div id="io-6" style="color:blue; margin-top:-0.4em;">10</div>
+                            </foreignObject>
+
+                            <foreignObject x="120" y="260" width="1.1em" height="0.9em">
+                                <div id="io-7" style="color:red; margin-top:-0.4em;">10</div>
+                            </foreignObject>
+
+                            <foreignObject x="120" y="315" width="1.1em" height="0.9em">
+                                <div id="io-8" style="color:blue; margin-top:-0.4em;">01</div>
+                            </foreignObject>
+
+
+                            <!-- Second Stage Blocks -->
+                            <foreignObject x=" 200" y="40" width="5em" height="5em">
+                                <div id="second-1" class="input-block">
+                                    <input type="number" class="number-inp" id="second-inp-1" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="200" y="120" width="5em" height="5em">
+                                <div id="second-2" class="input-block">
+                                    <input type="text" class="number-inp" id="second-inp-2" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="200" y="200" width="5em" height="5em">
+                                <div id="second-3" class="input-block">
+                                    <input type="number" class="number-inp" id="second-inp-3" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="200" y="280" width="5em" height="5em">
+                                <div id="second-4" class="input-block">
+                                    <input type="text" class="number-inp" id="second-inp-4" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <line class="line1" id="l9" x1="260" y1="65" x2="340" y2="65" onclick="toggle2(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l10" x1="260" y1="70" x2="340" y2="225" onclick="toggle2(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line1" id="l11" x1="260" y1="145" x2="340" y2="65" onclick="toggle2(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l12" x1="260" y1="150" x2="340" y2="225" onclick="toggle2(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line1" id="l13" x1="260" y1="225" x2="340" y2="145" onclick="toggle2(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l14" x1="260" y1="230" x2="340" y2="310" onclick="toggle2(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line1" id="l15" x1="260" y1="305" x2="340" y2="145" onclick="toggle2(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l16" x1="260" y1="310" x2="340" y2="310" onclick="toggle2(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+
+                            <!-- Third Stage Blocks -->
+                            <foreignObject x="340" y="40" width="5em" height="5em">
+                                <div id="third-1" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="third-inp-1" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="340" y="120" width="5em" height="5em">
+                                <div id="third-2" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="third-inp-2" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="340" y="200" width="5em" height="5em">
+                                <div id="third-3" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="third-inp-3" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="340" y="280" width="5em" height="5em">
+                                <div id="third-4" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="third-inp-4" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <line class="line1" id="l17" x1="400" y1="65" x2="480" y2="65" onclick="toggle3(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l18" x1="400" y1="70" x2="480" y2="225" onclick="toggle3(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line1" id="l19" x1="400" y1="145" x2="480" y2="65" onclick="toggle3(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l20" x1="400" y1="150" x2="480" y2="225" onclick="toggle3(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line1" id="l21" x1="400" y1="225" x2="480" y2="145" onclick="toggle3(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l22" x1="400" y1="230" x2="480" y2="310" onclick="toggle3(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line1" id="l23" x1="400" y1="305" x2="480" y2="145" onclick="toggle3(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l24" x1="400" y1="310" x2="480" y2="310" onclick="toggle3(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+
+                            <!-- Fourth Stage Blocks -->
+                            <foreignObject x="480" y="40" width="5em" height="5em">
+                                <div id="fourth-1" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="fourth-inp-1" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="480" y="120" width="5em" height="5em">
+                                <div id="fourth-2" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="fourth-inp-2" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="480" y="200" width="5em" height="5em">
+                                <div id="fourth-3" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="fourth-inp-3" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="480" y="280" width="5em" height="5em">
+                                <div id="fourth-4" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="fourth-inp-4" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <line class="line1" id="l25" x1="540" y1="65" x2="620" y2="65" onclick="toggle4(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l26" x1="540" y1="70" x2="620" y2="225" onclick="toggle4(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line1" id="l27" x1="540" y1="145" x2="620" y2="65" onclick="toggle4(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l28" x1="540" y1="150" x2="620" y2="225" onclick="toggle4(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line1" id="l29" x1="540" y1="225" x2="620" y2="145" onclick="toggle4(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l30" x1="540" y1="230" x2="620" y2="310" onclick="toggle4(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line1" id="l31" x1="540" y1="305" x2="620" y2="145" onclick="toggle4(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1"></line>
+                            <line class="line2" id="l32" x1="540" y1="310" x2="620" y2="310" onclick="toggle4(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1"></line>
+
+                            <!-- Fifth Stage Blocks -->
+                            <foreignObject x="620" y="40" width="5em" height="5em">
+                                <div id="fifth-1" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="fifth-inp-1" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="620" y="120" width="5em" height="5em">
+                                <div id="fifth-2" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="fifth-inp-2" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="620" y="200" width="5em" height="5em">
+                                <div id="fifth-3" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="fifth-inp-3" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="620" y="280" width="5em" height="5em">
+                                <div id="fifth-4" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="fifth-inp-4" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <line class="line1" id="l33" x1="680" y1="65" x2="760" y2="65" onclick="toggle5(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1;"></line>
+                            <line class="line2" id="l34" x1="680" y1="70" x2="760" y2="225" onclick="toggle5(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1;"></line>
+                            <line class="line1" id="l35" x1="680" y1="135" x2="760" y2="65" onclick="toggle5(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1;"></line>
+                            <line class="line2" id="l36" x1="680" y1="140" x2="760" y2="225" onclick="toggle5(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1;"></line>
+                            <line class="line1" id="l37" x1="680" y1="225" x2="760" y2="145" onclick="toggle5(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1;"></line>
+                            <line class="line2" id="l38" x1="680" y1="230" x2="760" y2="310" onclick="toggle5(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1;"></line>
+                            <line class="line1" id="l39" x1="680" y1="305" x2="760" y2="145" onclick="toggle5(id)"
+                                stroke="red" stroke-width="3" style="opacity:0.1;"></line>
+                            <line class="line2" id="l40" x1="680" y1="310" x2="760" y2="310" onclick="toggle5(id)"
+                                stroke="blue" stroke-width="3" style="opacity:0.1;"></line>
+
+                            <!-- Sixth Stage Blocks -->
+                            <foreignObject x="760" y="40" width="5em" height="5em">
+                                <div id="sixth-1" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="sixth-inp-1" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="760" y="120" width="5em" height="5em">
+                                <div id="sixth-2" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="sixth-inp-2" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="760" y="200" width="5em" height="5em">
+                                <div id="sixth-3" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="sixth-inp-3" min="0">
+                                </div>
+                            </foreignObject>
+
+                            <foreignObject x="760" y="280" width="5em" height="5em">
+                                <div id="sixth-4" class="input-block" style="display:none">
+                                    <input type="number" class="number-inp" id="sixth-inp-4" min="0">
+                                </div>
+                            </foreignObject>
+
+                        </svg>
+                    </div>
+                </form>
+                <button id="submit" class="v-button" form="form1" onclick="check()">Submit</button>
+
+            </div>
+        </div>
+
+        <div class="column is-3-desktop is-4-tablet is-12-mobile">
+            <div class="v-datalist-container components-list">
+                <div class="v-datalist-title">Observations</div>
+                <div id="observations">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+    <script src="./js/viterbi-decoding.js"></script>
+</body>
+
+</html>
