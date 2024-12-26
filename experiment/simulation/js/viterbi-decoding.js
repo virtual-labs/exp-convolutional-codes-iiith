@@ -227,10 +227,12 @@ function check() {
             obs.style.color = "red";
             if (obs.innerHTML == "<b>Wrong Answer :(</b>") {
                 obs.innerHTML = "<b>Wrong Again :(</b>";
+                alert('Wrong Again :(');
             }
 
             else {
                 obs.innerHTML = "<b>Wrong Answer :(</b>";
+                alert('Wrong Answer :(');
             }
         }
     }
@@ -288,10 +290,12 @@ function check() {
             obs.style.color = "red";
             if (obs.innerHTML == "<b>Wrong Answer :(</b>") {
                 obs.innerHTML = "<b>Wrong Again :(</b>";
+                alert('Wrong Again :(');
             }
 
             else {
                 obs.innerHTML = "<b>Wrong Answer :(</b>";
+                alert('Wrong Answer :(');
             }
         }
     }
@@ -349,10 +353,12 @@ function check() {
             obs.style.color = "red";
             if (obs.innerHTML == "<b>Wrong Answer :(</b>") {
                 obs.innerHTML = "<b>Wrong Again :(</b>";
+                alert('Wrong Again :(');
             }
 
             else {
                 obs.innerHTML = "<b>Wrong Answer :(</b>";
+                alert('Wrong Answer :(');
             }
         }
     }
@@ -410,10 +416,12 @@ function check() {
             obs.style.color = "red";
             if (obs.innerHTML == "<b>Wrong Answer :(</b>") {
                 obs.innerHTML = "<b>Wrong Again :(</b>";
+                alert('Wrong Again :(');
             }
 
             else {
                 obs.innerHTML = "<b>Wrong Answer :(</b>";
+                alert('Wrong Answer :(');
             }
         }
     }
@@ -470,10 +478,12 @@ function check() {
             obs.style.color = "red";
             if (obs.innerHTML == "<b>Wrong Answer :(</b>") {
                 obs.innerHTML = "<b>Wrong Again :(</b>";
+                alert('Wrong Again :(');
             }
 
             else {
                 obs.innerHTML = "<b>Wrong Answer :(</b>";
+                alert('Wrong Answer :(');
             }
         }
     }
@@ -510,10 +520,12 @@ function check() {
             obs.style.color = "red";
             if (obs.innerHTML == "<b>Wrong Answer :(</b>") {
                 obs.innerHTML = "<b>Wrong Again :(</b>";
+                alert('Wrong Again :(');
             }
 
             else {
                 obs.innerHTML = "<b>Wrong Answer :(</b>";
+                alert('Wrong Answer :(');
             }
         }
 
