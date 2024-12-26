@@ -7,8 +7,14 @@ The theory associated with Experiment-5 is divided into two parts:
 ## 1  Encoding of convolutional codes
 In experiment 1, we studied block codes and linear block codes. Convolutional codes are linear codes, but they are not "block" codes. For a block code, the given long stream of input bits is first divided into short message blocks and then a codeword is assigned to each message block. In convolutional codes, the input bitstream is directly given to the encoder, without dividing it into short message blocks. The output of convolutional encoder is the  encoded bitstream corresponding to the input bitstream. Another main difference between block codes and convolutional codes is that the convolutional encoder has a "memory". For a convolutional code, the encoded output bit at any given time depends not only on the current input bits but also on previous input bits, hence the encoder is said to have a memory. <br />     
 
-We shall now recall some basics about convolutional encoder. We shall focus on non-systematic feedforeward encoders of rate $1/n$. Please refer [1], [2] for a detailed discussion about convolutional codes. We shall introduce the basics of convolutional encoder through an example. Throughout this section, we shall focus on the rate $1/2$ convolutional encoder illustrated in Figure~1. As shown, this encoder consists of the system formed by two shift register, two adders, and the corresponding connections. The memory $m$ of this encoder is equal to the number of shift registers.  
-![alt text](./images/exp5-figure1.png)
+We shall now recall some basics about convolutional encoder. We shall focus on non-systematic feedforeward encoders of rate $1/n$. Please refer [1], [2] for a detailed discussion about convolutional codes. We shall introduce the basics of convolutional encoder through an example. Throughout this section, we shall focus on the rate $1/2$ convolutional encoder illustrated in Figure~1. As shown, this encoder consists of the system formed by two shift register, two adders, and the corresponding connections. The memory $m$ of this encoder is equal to the number of shift registers.
+<br />  
+<div style="text-align: center;">
+    <img src="./images/exp5-figure1.png" alt="Convolution Encoder" style="display: block; margin: auto">
+</div>
+<br />
+<br />
+<!-- ![alt text](./images/exp5-figure1.png) -->
 
 
 For Figure 1, we have $m=2$. The input bitstream is denoted by $\mathbf{u} = [u_0, u_1, u_2, ...]$ such that at time instant $t$, the bit $u_t$ enters the system. The contents of the shift registers at time $t$ are $u_{t-1}$ and $u_{t-2}$ respectively. For the sake of simplicity we shall assume that at time $t=0$, the contents of both the shift registers are empty, i.e., bit $0$ is stored at both the registers.The output of the encoder consists of two bitstreams denoted by 
@@ -47,12 +53,26 @@ Suppose the encoder is at state $\sigma_t = (u_{t-1}   u_{t-2})$. Then for the i
 
 For example, let $\sigma_t = (u_{t-1}  u_{t-2})= (1 0)$. Then for input $u_t = 1$ the encoder will jump to state $(1  1)$ and the corresponding output bits will be $v_t^{(0)} = 0$ and $v_t^{(1)}= 1$. All possible combinations of states and their transitions corresponding to all possible inputs is compactly represented using the state diagram. The state diagram of the encoder of Figure 1 is illustrated in Figure . In this figure, the transitions corresponding to input $1$ are indicated using red color and transitions corresponding to input $0$ are indicated using blue color. We shall use this color representation throughout the theory overview.  
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ![alt text](./images/exp5-figure2.png)
+<!-- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ![alt text](./images/exp5-figure2.png)
+<br /> -->
+
+<br />  
+<div style="text-align: center;">
+    <img src="./images/exp5-figure2.png" alt="State Diagram" style="display: block; margin: auto">
+</div>
 <br />
+<br />
+
 It can be seen that for the given input bitstream,  the corresponding encoded output bitstream can be obtained conveniently by considering the transitions of the system from one state to another and noting the corresponding output bits. This time evolution of the state diagram is called as a trellis diagram. For any time instant $t$, $\sigma_t$ and $\sigma_{t+1}$ are called as present state and next state respectively. 
 
 The trellis diagram corresponding to the state diagram of Figure 2 or three time instances is shown in Figure 3. Suppose $\sigma_0 = (00)$. Then for $u_0, u_1, u_2 = 1, 0, 1$ the corresponding the time evolution is illustrated in Figure 3 via thick lines. It can be seen that the output bitstream will be $\mathbf{v} = [v_0^{(0)}, v_0^{(1)}, v_1^{(0)}, v_1^{(1)},v_2^{(0)}, v_2^{(1)}] = [1, 0, 1, 1, 0, 1]$. Note that any path in this trellis corresponds to a valid codeword and vice versa. 
-![alt text](./images/exp5-figure3.png)
+<!-- ![alt text](./images/exp5-figure3.png) -->
+<br />  
+<div style="text-align: center;">
+    <img src="./images/exp5-figure3.png" alt="Trellis Diagram" style="display: block; margin: auto">
+</div>
+<br />
+<br />
 
 ## 2 Viterbi decoding
 In this section, we shall study Viterbi algorithm for decoding convolutional codes. This is an optimum, maximum likelihood (ML) decoding 
@@ -75,7 +95,10 @@ For example, suppose $a_1 = 1, a_2=2,$ and $[r_1 r_2] = [1  0]$. Then $b_1$ will
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  $=$ $2.$ <br />
 The path from $S_2$ to $S_1$ is discarded from the trellis since it has a larger weight. 
 <br />
-![alt text](./images/exp5-figure4.png)
+<div style="text-align: center;">
+    <img src="./images/exp5-figure4.png" alt="Viterbi Algorithm" style="display: block; margin: auto">
+</div>
+<!-- ![alt text](./images/exp5-figure4.png) -->
 <br /> 
 It can be observed from the previous paragraph that, for every state at any time instant $t$, the arriving path with the minimum Hamming weight is chosen. This forms the key idea of the Viterbi algorithm. We are now ready now summarize the steps of Viterbi algorithm.
 
@@ -89,5 +112,9 @@ It can be observed from the previous paragraph that, for every state at any time
 - Starting from a state with the minimum value, trace back along the path from right to left till we reach to the beginning of the trellis. This path corresponds to the decoded codebit stream. Figure 5, this is indicated using thick black lines.
 <br /> 
 
-![alt text](./images/Exp5-figure5.png)
+<!-- ![alt text](./images/Exp5-figure5.png) -->
+<div style="text-align: center;">
+    <img src="./images/Exp5-figure5.png" alt="Viterbi Algorithm for onvolutional code" style="display: block; margin: auto">
+</div>
+<br /> 
 
