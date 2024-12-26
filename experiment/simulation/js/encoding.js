@@ -123,12 +123,14 @@ function check() {
     else {
         if (cEntered.innerHTML == "<b>Wrong Answer :(</b>") {
             cEntered.innerHTML = "<b>Wrong Again :(</b>";
+            alert('Wrong Again :(');
             cEntered.style.color = "red";
             return;
         }
 
         else {
             cEntered.innerHTML = "<b>Wrong Answer :(</b>";
+            alert('Wrong Answer :(');
             cEntered.style.color = "red";
             return;
         }

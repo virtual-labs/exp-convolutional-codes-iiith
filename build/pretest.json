@@ -1,0 +1,49 @@
+{
+    "version": 2.0,
+    "questions": [
+      {
+        "question": "1. Choose the correct option for convolutional codes.",
+        "answers": {
+          "a": "Convolutional codes can be linear or non-linear codes and they have memory.",
+          "b": "Convolutional codes are linear codes and they have memory.",
+          "c": "Convolutional codes are linear codes and they may or may not have memory.",
+          "d": "Both (B) and (C) are correct."
+        },
+        "correctAnswer": "b",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "2. Consider a rate $\\mathbf{1/n}$ convolutional code with feedforeward encoder implementation.Then  the $\\mathbf{t}$-th output bit $\\mathbf{{v_t^{(j)}}}$ of output sequence $\\mathbf{{v}^{(j)}}$ for $\\mathbf{j = 1, 2, \\ldots, }$ is given by",
+        "answers": {
+          "a": "$v_t^{(j)} = \\sum_{i=0}^m  u_{t-i} g_{t-i}^{(j)}$",
+          "b": "$v_t^{(j)} = \\sum_{i=0}^m  u_i g_{t-i}^{(j)}$",
+          "c": "$v_t^{(j)} = \\sum_{i=0}^m  u_{t-i} g_i^{(j)}$",
+          "d": "Data insufficient. Need to provide information about encoder connections."
+        },
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "3. Consider an arbitrary rate $\\mathbf{1/2}$ feedforeward encoder with memory $\\mathbf{2}$. Suppose $\\mathbf{\\sigma_t = (01)}$ and $\\mathbf{u_t = 0}$. Then $\\mathbf{\\sigma_{t+1}}$ will be",
+        "answers": {
+          "a": "$\\sigma_{t+1} = (00)$",
+          "b": "$\\sigma_{t+1} = (01)$",
+          "c": "$\\sigma_{t+1} = (001)$",
+          "d": "$\\sigma_{t+1} = (11)$"
+        },
+        "correctAnswer": "a",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "4. Suppose the received sequence is decoded using Viterbi decoder. Select the incorrect statement.",
+        "answers": {
+          "a": "Viterbi algorithm provides maximum likelihood decoding.",
+          "b": "Viterbi algorithm can also be applied when the encoder does not start in all-zero state.",
+          "c": "Viterbi algorithm will fail if there are multiple states with the same state metric.",
+          "d": "Consider the forward pass of Viterbi algorithm. In any intermediate step, the arriving path to any state with a larger weight is discarded."
+        },
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      }
+    ]
+  }

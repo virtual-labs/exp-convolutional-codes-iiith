@@ -1,0 +1,42 @@
+.algorithm-field {
+    display: flex;
+}
+
+.scroll-box {
+    overflow-x: scroll;
+}
+
+
+
+.block {
+    padding-top: 0.6em;
+    height: 3em;
+    width: 3em;
+    color: black;
+    background: rgb(255, 255, 0);
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 1em;
+    border-style: solid;
+}
+
+.empty-block {
+    padding-top: 0.75em;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+
+.line {
+    display: none;
+    position: absolute;
+}
+
+.io-block {
+    font-weight: bold;
+    display: none;
+}
+
