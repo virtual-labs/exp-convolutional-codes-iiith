@@ -1,7 +1,7 @@
 The theory associated with Experiment-5 is divided into two parts:
 
-(1) Encoding of convolutional codes <br />
-(2) Viterbi decoding
+1. Encoding of convolutional codes
+2. Viterbi decoding
 
 ### 1. Encoding of convolutional codes
 
