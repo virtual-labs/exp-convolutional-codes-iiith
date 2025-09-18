@@ -1,6 +1,5 @@
 There are three tasks in Simulation.
 <br>
-<br>
 
 **Procedure for Encoding:**
 
