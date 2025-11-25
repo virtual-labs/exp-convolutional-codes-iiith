@@ -1,0 +1,73 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. Choose the correct option for convolutional codes.",
+      "answers": {
+        "a": "Convolutional codes can be linear or non-linear codes and they have memory.",
+        "b": "Convolutional codes are linear codes and they have memory.",
+        "c": "Convolutional codes are linear codes and they may or may not have memory.",
+        "d": "Both (B) and (C) are correct."
+      },
+      "explanations": {
+        "a": "Incorrect. Convolutional codes used in practice are linear and have memory.",
+        "b": "Correct! Convolutional codes are linear and have memory.",
+        "c": "Incorrect. Convolutional codes always have memory.",
+        "d": "Incorrect. Only (B) is correct."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. Consider a rate $\\mathbf{1/n}$ convolutional code with feedforward encoder implementation. Then the $\\mathbf{t}$-th output bit $\\mathbf{{v_t^{(j)}}}$ of output sequence $\\mathbf{{v}^{(j)}}$ for $\\mathbf{j = 1, 2, \\ldots, }$ is given by",
+      "answers": {
+        "a": "$v_t^{(j)} = \\sum_{i=0}^m  u_{t-i} g_{t-i}^{(j)}$",
+        "b": "$v_t^{(j)} = \\sum_{i=0}^m  u_i g_{t-i}^{(j)}$",
+        "c": "$v_t^{(j)} = \\sum_{i=0}^m  u_{t-i} g_i^{(j)}$",
+        "d": "Data insufficient. Need to provide information about encoder connections."
+      },
+      "explanations": {
+        "a": "Incorrect. The generator polynomial coefficients should be indexed by $i$.",
+        "b": "Incorrect. The input bits should be indexed by $t-i$.",
+        "c": "Correct! The output is a sum over $u_{t-i}$ times $g_i^{(j)}$.",
+        "d": "Incorrect. Sufficient information is provided."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. Consider an arbitrary rate $\\mathbf{1/2}$ feedforeward encoder with memory $\\mathbf{2}$. Suppose $\\mathbf{\\sigma_t = (01)}$ and $\\mathbf{u_t = 0}$. Then $\\mathbf{\\sigma_{t+1}}$ will be",
+      "answers": {
+        "a": "$\\sigma_{t+1} = (00)$",
+        "b": "$\\sigma_{t+1} = (01)$",
+        "c": "$\\sigma_{t+1} = (001)$",
+        "d": "$\\sigma_{t+1} = (11)$"
+      },
+      "explanations": {
+        "a": "Correct! The new state is formed by shifting in $u_t=0$.",
+        "b": "Incorrect. The state does not remain the same.",
+        "c": "Incorrect. The state length is not increased.",
+        "d": "Incorrect. The new state is not (11)."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. Suppose the received sequence is decoded using Viterbi decoder. Select the incorrect statement.",
+      "answers": {
+        "a": "Viterbi algorithm provides maximum likelihood decoding.",
+        "b": "Viterbi algorithm can also be applied when the encoder does not start in all-zero state.",
+        "c": "Viterbi algorithm will fail if there are multiple states with the same state metric.",
+        "d": "Consider the forward pass of Viterbi algorithm. In any intermediate step, the arriving path to any state with a larger weight is discarded."
+      },
+      "explanations": {
+        "a": "Incorrect. Viterbi algorithm does provide maximum likelihood decoding.",
+        "b": "Incorrect. Viterbi algorithm can be applied for any initial state.",
+        "c": "Correct! The algorithm does not fail; it chooses one of the paths arbitrarily.",
+        "d": "Incorrect. This is a correct statement about the algorithm."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    }
+  ]
+}
